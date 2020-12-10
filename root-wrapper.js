@@ -96,10 +96,11 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
+  color:  var(--main-text);
 }
 html {
   font-size: 62.5%;
-  background-color: #030303;
+  background: var(--main-bg);
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -114,11 +115,13 @@ menu,
 nav,
 section {
   display: block;
+  color:  var(--main-text);
 }
 
 body {
   line-height: 1;
   font-size: 1.2em;
+  background: var(--main-bg);
 }
 ol,
 ul {
@@ -142,23 +145,32 @@ table {
 
 
 /* My CSS */
+:root {
+  --main-text: #CDCDCD;
+  --main-bg: #181a22;
+  --second-bg: #030303;
+}
 h1 {
   font-size: 3.4rem;
 }
+.icon {
+  font-size: 1.8rem;
+}
 header {
-  height: 60px;
-  background: #030303;
+  height: 6rem;
+  background: var(--second-bg);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 7.7rem;
 }
 main {
   width: 100vw;
-  height: calc(100vh - 60px);
-  background: #181a22;
+  height: calc(100vh - 6rem);
 }
 footer {
   width: 100vw;
   height: 200px;
-  background: #030303;
-  color: #fff;
+  background: var(--second-bg);
 }
 `
 
