@@ -20,10 +20,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header shortTitle={data.site.siteMetadata?.shortTitle || `QueerBand`} />
-      <div>
-        <main>{children}</main>
-        <Footer />
-      </div>
+
+      <main>{children}</main>
+      <Footer />
     </>
   )
 }

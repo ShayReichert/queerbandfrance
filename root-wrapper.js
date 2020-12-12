@@ -161,7 +161,7 @@ header {
   background: var(--second-bg);
   display: flex;
   justify-content: space-between;
-  padding: 0 7.7rem;
+  padding: 0 4.7rem;
 }
 main {
   width: 100vw;
