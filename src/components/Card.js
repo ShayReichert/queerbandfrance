@@ -5,7 +5,7 @@ import { SiBandcamp, SiInstagram } from 'react-icons/si'
 
 import placeholder from '../images/placeholder-img.jpg'
 
-const Card = styled.div`
+const Main = styled.div`
   background: rgba(241, 241, 241, 0.05);
   height: 32rem;
   width: 23rem;
@@ -69,13 +69,13 @@ const BtnBand = styled.div`
   }
 `
 
-const Cards = () => (
-  <Card>
+const Card = ({ name }) => (
+  <Main>
     <ImgBand className="card__photo">
       <img src={placeholder} alt="placeholder" />
     </ImgBand>
     <InfosBand>
-      <h2>Championnes</h2>
+      <h2>{name}</h2>
       <p>
         <span role="img" aria-label="piano">
           🎹{' '}
@@ -100,7 +100,7 @@ const Cards = () => (
         <SiInstagram />
       </button>
     </BtnBand>
-  </Card>
+  </Main>
 )
 
-export default Cards
+export default Card

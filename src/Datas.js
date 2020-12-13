@@ -1,0 +1,32 @@
+export const styles = [
+  'Cold Wave',
+  'Post-punk',
+  'Hip-Hop',
+  'Electro',
+  'Grunge',
+  'Punk',
+  'Synth-pop',
+  'Metal',
+  'Pop-punk',
+  'Garage',
+  'Riot',
+  'Indie',
+  'Contemporain',
+  'Slam',
+  'Expérimental',
+  'Gabber',
+  'Lo-fi',
+  'Techno',
+]
+
+export const bands = [
+  'Championnes',
+  '..,;])',
+  'Trholz',
+  'La Chasse',
+  '18h15',
+  'Calling Marian',
+  'Radical Kitten',
+  'Judith Judah',
+  'Morsure',
+]
