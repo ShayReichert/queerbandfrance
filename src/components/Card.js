@@ -12,6 +12,18 @@ const Main = styled.div`
   margin: 0.5rem;
   border-radius: 0.8rem;
   cursor: default;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  z-index: 1;
+  opacity: 0.7;
+  transition: all 300ms;
+  &:hover {
+    opacity: 1;
+  }
+  &:hover button {
+    transform: translateY(0);
+    opacity: 1;
+  }
 `
 const ImgBand = styled.div`
   height: 45%;
@@ -33,6 +45,7 @@ const InfosBand = styled.div`
 
   h2 {
     margin: 0 auto;
+    white-space: nowrap;
     text-transform: uppercase;
     font-size: 2.6rem;
     margin-bottom: 1rem;
@@ -51,14 +64,18 @@ const BtnBand = styled.div`
   display: flex;
   justify-content: space-between;
   button {
-    font-size: 1.7rem;
-    border-radius: 30px;
-    border: none;
     height: 3.2rem;
     width: 3.3rem;
+    border-radius: 30px;
+    border: none;
     background: #383838;
     color: var(--main-text);
+    font-size: 1.7rem;
     cursor: pointer;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: 0.3s;
+    transition-delay: calc(0.1s * var(--i));
     &:hover {
       color: #fff;
     }
@@ -90,13 +107,13 @@ const Card = ({ name }) => (
       </p>
     </InfosBand>
     <BtnBand>
-      <button>
+      <button style={{ '--i': '1' }} aria-label="Bandcamp">
         <SiBandcamp />
       </button>
-      <button>
+      <button style={{ '--i': '2' }} aria-label="Facebook">
         <FaFacebookF />
       </button>
-      <button>
+      <button style={{ '--i': '3' }} aria-label="Instagram">
         <SiInstagram />
       </button>
     </BtnBand>

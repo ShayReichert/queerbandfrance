@@ -164,9 +164,47 @@ header {
   padding: 0 4.7rem;
 }
 main {
+  position: relative;
   width: 100vw;
   height: calc(100vh - 6rem);
 }
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40rem;
+    height: 40rem;
+    background: rgba(114, 187, 255, 0.38);
+    clip-path: circle(30% at  right 10%);
+  }
+main::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 350px;
+    width: 40rem;
+    height: 40rem;
+    background: rgba(235,114,255,0.21);
+    clip-path: circle(50% at 0% 50%);
+    transform: rotate(-90deg);
+    z-index: 0;
+  }
+
+#map_france path {
+  fill: var(--main-text);
+  stroke: var( --main-bg);
+  stroke-width: 2px;
+  transition: fill 100ms;
+  cursor: pointer;
+}
+#map_france path:hover {
+  fill: rgba(114, 187, 255, 0.78);
+}
+#map_france .active {
+  fill: rgba(114, 187, 255, 0.58);
+}
+
 footer {
   width: 100vw;
   height: 200px;

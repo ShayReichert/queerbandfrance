@@ -10,6 +10,15 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/,
+          omitKeys: ['xmlnsSerif'],
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-styled-components`,
     },
     `gatsby-plugin-react-helmet`,

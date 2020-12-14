@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const StyleLi = styled.li`
@@ -20,10 +20,18 @@ const StyleLi = styled.li`
   }
 `
 
-const Style = ({ name }) => (
-  <>
-    <StyleLi>{name}</StyleLi>
-  </>
-)
+const Style = ({ name }) => {
+  const [isActive, setIsActive] = useState(false)
+  let toggleActive = ''
+  isActive && (toggleActive = 'active')
+
+  return (
+    <>
+      <StyleLi onClick={() => setIsActive(!isActive)} className={toggleActive}>
+        {name}
+      </StyleLi>
+    </>
+  )
+}
 
 export default Style
