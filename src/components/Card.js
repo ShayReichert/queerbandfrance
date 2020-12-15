@@ -25,6 +25,7 @@ const Main = styled.div`
     opacity: 1;
   }
 `
+
 const ImgBand = styled.div`
   height: 45%;
   width: 100%;
@@ -57,32 +58,14 @@ const InfosBand = styled.div`
     line-height: 1.8;
   }
 `
+
 const BtnBand = styled.div`
-  margin: auto;
   margin-top: 1rem;
-  width: 13rem;
-  display: flex;
-  justify-content: space-between;
   button {
-    height: 3.2rem;
-    width: 3.3rem;
-    border-radius: 30px;
-    border: none;
-    background: #383838;
-    color: var(--main-text);
-    font-size: 1.7rem;
-    cursor: pointer;
     transform: translateY(80px);
     opacity: 0;
     transition: 0.3s;
     transition-delay: calc(0.1s * var(--i));
-    &:hover {
-      color: #fff;
-    }
-    svg {
-      vertical-align: middle;
-      text-align: center;
-    }
   }
 `
 
@@ -106,14 +89,14 @@ const Card = ({ name }) => (
         Bordeaux, Nouvelle-Aquitaine
       </p>
     </InfosBand>
-    <BtnBand>
-      <button style={{ '--i': '1' }} aria-label="Bandcamp">
+    <BtnBand className="social-btn-box">
+      <button style={{ '--i': '1' }} aria-label="Bandcamp du groupe">
         <SiBandcamp />
       </button>
-      <button style={{ '--i': '2' }} aria-label="Facebook">
+      <button style={{ '--i': '2' }} aria-label="Facebook du groupe">
         <FaFacebookF />
       </button>
-      <button style={{ '--i': '3' }} aria-label="Instagram">
+      <button style={{ '--i': '3' }} aria-label="Instagram gu groupe">
         <SiInstagram />
       </button>
     </BtnBand>
