@@ -100,7 +100,7 @@ video {
 }
 html {
   font-size: 62.5%;
-  background: var(--main-bg);
+  background: var(--second-bg);
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -156,29 +156,84 @@ h1 {
 .icon {
   font-size: 1.8rem;
 }
-header {
-  height: 6rem;
-  background: var(--second-bg);
+.social-btn-box {
+  margin: auto;
+  width: 13rem;
   display: flex;
   justify-content: space-between;
-  padding: 0 4.7rem;
+  button {
+    outline: none;
+    height: 3.2rem;
+    width: 3.3rem;
+    border-radius: 30px;
+    border: none;
+    background: #383838;
+    color: var(--main-text);
+    font-size: 1.7rem;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+    svg {
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
 }
+header {
+  position: relative;
+  z-index: 1;
+  height: 15rem;
+  background: var(--second-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    height: 6rem;
+    padding: 0 4.7rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+header #burger {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 4.5rem;
+  cursor: pointer;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+.menu-active .bloc1 {
+  display: block;
+}
+.menu-active .bloc2 {
+  display: flex;
+}
+
 main {
   position: relative;
-  width: 100vw;
-  height: calc(100vh - 6rem);
+  @media screen and (min-width: 768px) {
+    width: 100vw;
+    height: calc(100vh - 6rem);
+  }
 }
 main::before {
+  @media screen and (min-width: 768px) {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
+    background: rgba(114, 187, 255, 0.38);
     width: 40rem;
     height: 40rem;
-    background: rgba(114, 187, 255, 0.38);
     clip-path: circle(30% at  right 10%);
+    top: 0;
+    right: 0;
   }
+}
 main::after {
+  @media screen and (min-width: 768px) {
     content: '';
     position: absolute;
     bottom: 0;
@@ -190,26 +245,88 @@ main::after {
     transform: rotate(-90deg);
     z-index: 0;
   }
+}
 
-#map_france path {
+main #map_france path {
   fill: var(--main-text);
   stroke: var( --main-bg);
   stroke-width: 2px;
   transition: fill 100ms;
   cursor: pointer;
 }
-#map_france path:hover {
+main #map_france path:hover {
   fill: rgba(114, 187, 255, 0.78);
 }
-#map_france .active {
+main #map_france .active {
   fill: rgba(114, 187, 255, 0.58);
+}
+
+main .mentions-conditions {
+  height: 80vh; 
+  padding: 1rem;
+  font-family: 'Archivo', Arial, Helvetica, sans-serif ;
+  font-size: 1.3rem;
+  overflow-x: scroll;
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
+  section {
+    margin: 4rem 2rem;
+  }
+  p {
+    margin: 3rem auto;
+    line-height: 25px;
+  }
+  li {
+    line-height: 25px;
+    list-style: circle;
+  }
+  
+  @media screen and (min-width: 768px) {
+    font-size: 1.7rem;
+    padding: 3rem;
+    h1 {
+      font-size: 7rem;
+    }
+    section {
+      margin: 6rem;
+    }
+  }
+  
 }
 
 footer {
   width: 100vw;
-  height: 200px;
   background: var(--second-bg);
+  display: grid;
+  @media screen and (min-width: 768px) {
+    height: 35rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+footer .footer-parts {
+  justify-self: stretch;
+  align-self: center;
+  line-height: 35px;
+  a, p {
+    font-family: 'Archivo', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: var(--main-text);
+  }
+  a:hover {
+    color: #fff;
+  }
+  @media screen and (min-width: 768px) {
+    margin: initial;
+    line-height: 25px;
+  }
+}
+
+
 `
 
 export const wrapRootElement = ({ element }) => {

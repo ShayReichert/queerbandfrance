@@ -29,4 +29,13 @@ export const bands = [
   'Radical Kitten',
   'Judith Judah',
   'Morsure',
+  'Championnes',
+  '..,;])',
+  'Trholz',
+  'La Chasse',
+  '18h15',
+  'Calling Marian',
+  'Radical Kitten',
+  'Judith Judah',
+  'Morsure',
 ]

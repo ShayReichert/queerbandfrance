@@ -1,8 +1,9 @@
+import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import React from 'react'
 import { BsSearch } from 'react-icons/bs'
+import { IoMenu } from 'react-icons/io5'
 
 const MainTitle = styled.div`
   display: flex;
@@ -11,7 +12,11 @@ const MainTitle = styled.div`
 const MainSearch = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 12rem;
+  margin-top: 2rem;
+  @media screen and (min-width: 768px) {
+    margin-right: 12rem;
+    margin-top: 0;
+  }
 `
 const SearchInput = styled.input`
   border-radius: 3rem;
@@ -47,6 +52,7 @@ const Header = ({ shortTitle }) => (
         <Link to="/">{shortTitle}</Link>
         <span>France</span>
       </Title>
+      <IoMenu id="burger" />
     </MainTitle>
 
     <MainSearch>

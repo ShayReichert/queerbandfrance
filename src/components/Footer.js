@@ -3,15 +3,21 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import { FaFacebookF } from 'react-icons/fa'
-import { SiBandcamp, SiInstagram } from 'react-icons/si'
+import { SiYoutube, SiInstagram } from 'react-icons/si'
 
 const FooterLinks = styled.div`
   border: 1px solid transparent;
-  padding-left: 8rem;
+  margin: 6rem 0;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    padding-left: 8rem;
+    text-align: left;
+  }
 `
 const FooterCopyright = styled.div`
   border: 1px solid transparent;
   text-align: center;
+  margin: 6rem 0;
   p:nth-of-type(1) {
     text-transform: uppercase;
     font-size: 1.4rem;
@@ -19,6 +25,11 @@ const FooterCopyright = styled.div`
 `
 const FooterAsso = styled.div`
   border: 1px solid transparent;
+  margin: 6rem 0;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
   p {
     padding: 0 8rem;
   }
@@ -48,19 +59,43 @@ const Footer = ({ title }) => {
           © {new Date().getFullYear()} {title}
         </p>
         <p>
-          Designed & Created with 💙 by{' '}
-          <a href="mailto:shay.reichert@outlook.fr">Shay Reichert</a>
+          Designed & Created with{' '}
+          <span role="img" aria-label="blue heart">
+            💙
+          </span>{' '}
+          by <a href="mailto:shay.reichert@outlook.fr">Shay Reichert</a>
         </p>
+
         <BtnFooter className="social-btn-box">
-          <button aria-label="Bandcamp">
-            <SiBandcamp />
-          </button>
-          <button aria-label="Facebook">
-            <FaFacebookF />
-          </button>
-          <button aria-label="Instagram">
-            <SiInstagram />
-          </button>
+          <a
+            href="https://www.youtube.com/channel/UCTu84B1flb--aF4jzfeh-eQ"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <button aria-label="Bandcamp">
+              <SiYoutube />
+            </button>
+          </a>
+
+          <a
+            href="https://www.facebook.com/THISISARIOT"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <button aria-label="Facebook">
+              <FaFacebookF />
+            </button>
+          </a>
+
+          <a
+            href="https://www.instagram.com/this_is_a_riot/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <button aria-label="Instagram">
+              <SiInstagram />
+            </button>
+          </a>
         </BtnFooter>
       </FooterCopyright>
 
@@ -69,6 +104,7 @@ const Footer = ({ title }) => {
           L’association{' '}
           <a
             href="https://www.facebook.com/THISISARIOT"
+            target="_blank"
             rel="noreferrer noopener"
           >
             THIS IS A RIOT
