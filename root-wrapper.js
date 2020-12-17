@@ -96,10 +96,11 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
+  color:  var(--main-text);
 }
 html {
   font-size: 62.5%;
-  background-color: #030303;
+  background: var(--second-bg);
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -114,11 +115,13 @@ menu,
 nav,
 section {
   display: block;
+  color:  var(--main-text);
 }
 
 body {
   line-height: 1;
   font-size: 1.2em;
+  background: var(--main-bg);
 }
 ol,
 ul {
@@ -142,24 +145,181 @@ table {
 
 
 /* My CSS */
+:root {
+  --main-text: #CDCDCD;
+  --main-bg: #181a22;
+  --second-bg: #030303;
+}
 h1 {
   font-size: 3.4rem;
 }
+.icon {
+  font-size: 1.8rem;
+}
+.social-btn-box {
+  margin: auto;
+  width: 13rem;
+  display: flex;
+  justify-content: space-between;
+  button {
+    outline: none;
+    height: 3.2rem;
+    width: 3.3rem;
+    border-radius: 30px;
+    border: none;
+    background: #383838;
+    color: var(--main-text);
+    font-size: 1.7rem;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+    svg {
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+}
+
 header {
-  height: 60px;
-  background: #030303;
+  height: 15rem;
+  background: var(--second-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    height: 6rem;
+    padding: 0 4.7rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
+.menu-active .bloc1 {
+  display: block;
+}
+.menu-active .bloc2 {
+  display: flex;
+}
+
 main {
-  width: 100vw;
-  height: calc(100vh - 60px);
-  background: #181a22;
+  position: relative;
+  margin-bottom: 2rem;
+  @media screen and (min-width: 768px) {
+    width: 100vw;
+    height: calc(100vh - 6rem);
+    margin-bottom: initial;
+  }
 }
+main::before {
+  @media screen and (min-width: 768px) {
+    content: '';
+    position: absolute;
+    background: rgba(114, 187, 255, 0.38);
+    width: 40rem;
+    height: 40rem;
+    clip-path: circle(30% at  right 10%);
+    top: 0;
+    right: 0;
+  }
+}
+main::after {
+  @media screen and (min-width: 768px) {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 350px;
+    width: 40rem;
+    height: 40rem;
+    background: rgba(235,114,255,0.21);
+    clip-path: circle(50% at 0% 50%);
+    transform: rotate(-90deg);
+    z-index: 0;
+  }
+}
+
+main #map_france path {
+  fill: var(--main-text);
+  stroke: var( --main-bg);
+  stroke-width: 2px;
+  transition: fill 100ms;
+  cursor: pointer;
+}
+main #map_france path:hover {
+  @media screen and (min-width: 768px) {
+    fill: rgba(114, 187, 255, 0.78);
+  }
+}
+main #map_france .active {
+  fill: rgba(114, 187, 255, 0.58);
+}
+
+main .mentions-conditions {
+  height: 80vh; 
+  padding: 1rem;
+  font-family: 'Archivo', Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  overflow-x: scroll;
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2.4rem;
+  }
+  section {
+    margin: 4rem 2rem;
+  }
+  p {
+    margin: 3rem auto;
+    line-height: 25px;
+  }
+  li {
+    line-height: 25px;
+    list-style: circle;
+  }
+  
+  @media screen and (min-width: 768px) {
+    font-size: 1.7rem;
+    padding: 3rem;
+    h1 {
+      font-size: 7rem;
+    }
+    section {
+      margin: 6rem;
+    }
+  }
+  
+}
+
 footer {
-  width: 100vw;
-  height: 200px;
-  background: #030303;
-  color: #fff;
+  background: var(--second-bg);
+  display: grid;
+  @media screen and (min-width: 768px) {
+    min-height: 35rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+footer .footer-parts {
+  margin: 6rem 0;
+  align-self: center;
+  border: 1px solid transparent;
+  line-height: 35px;
+  a, p {
+    font-family: 'Archivo', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: var(--main-text);
+  }
+  a:hover {
+    color: #fff;
+  }
+  @media screen and (min-width: 768px) {
+    margin: initial;
+    line-height: 25px;
+  }
+}
+
+
 `
 
 export const wrapRootElement = ({ element }) => {
