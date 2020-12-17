@@ -13,6 +13,7 @@ import { styles, bands } from '../Datas'
 const MainGrid = styled.div`
   margin: auto;
   margin-top: 5rem;
+
   @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: 42% 58%;
@@ -27,6 +28,7 @@ const GridMap = styled.div`
   position: relative;
   grid-row: 1 / 2;
   display: none;
+
   @media screen and (min-width: 768px) {
     display: block !important;
   }
@@ -60,6 +62,7 @@ const GridStyles = styled.div`
     max-width: none;
     margin: initial;
   }
+
   ul {
     height: 90%;
     width: 90%;
@@ -72,6 +75,7 @@ const GridStyles = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     z-index: 1;
+
     @media screen and (min-width: 768px) {
       justify-content: space-between;
     }

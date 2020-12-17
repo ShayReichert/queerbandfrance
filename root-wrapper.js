@@ -180,9 +180,8 @@ h1 {
     }
   }
 }
+
 header {
-  position: relative;
-  z-index: 1;
   height: 15rem;
   background: var(--second-bg);
   display: flex;
@@ -196,16 +195,6 @@ header {
     justify-content: space-between;
   }
 }
-header #burger {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 4.5rem;
-  cursor: pointer;
-  @media screen and (min-width: 768px) {
-    display: none;
-  }
-}
 .menu-active .bloc1 {
   display: block;
 }
@@ -215,9 +204,11 @@ header #burger {
 
 main {
   position: relative;
+  margin-bottom: 2rem;
   @media screen and (min-width: 768px) {
     width: 100vw;
     height: calc(100vh - 6rem);
+    margin-bottom: initial;
   }
 }
 main::before {
@@ -255,7 +246,9 @@ main #map_france path {
   cursor: pointer;
 }
 main #map_france path:hover {
-  fill: rgba(114, 187, 255, 0.78);
+  @media screen and (min-width: 768px) {
+    fill: rgba(114, 187, 255, 0.78);
+  }
 }
 main #map_france .active {
   fill: rgba(114, 187, 255, 0.58);
@@ -264,7 +257,7 @@ main #map_france .active {
 main .mentions-conditions {
   height: 80vh; 
   padding: 1rem;
-  font-family: 'Archivo', Arial, Helvetica, sans-serif ;
+  font-family: 'Archivo', Arial, Helvetica, sans-serif;
   font-size: 1.3rem;
   overflow-x: scroll;
   h1 {
@@ -300,17 +293,17 @@ main .mentions-conditions {
 }
 
 footer {
-  width: 100vw;
   background: var(--second-bg);
   display: grid;
   @media screen and (min-width: 768px) {
-    height: 35rem;
+    min-height: 35rem;
     grid-template-columns: repeat(3, 1fr);
   }
 }
 footer .footer-parts {
-  justify-self: stretch;
+  margin: 6rem 0;
   align-self: center;
+  border: 1px solid transparent;
   line-height: 35px;
   a, p {
     font-family: 'Archivo', Arial, Helvetica, sans-serif;

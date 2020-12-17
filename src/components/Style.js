@@ -13,13 +13,17 @@ const StyleLi = styled.li`
   display: flex;
   align-items: center;
   justify-content: center;
+
   @media screen and (min-width: 768px) {
     font-size: 1.6rem;
   }
+
   &:hover {
-    color: white;
-    background: #181a22;
-    border-radius: 0.5rem;
+    @media screen and (min-width: 768px) {
+      color: white;
+      background: #181a22;
+      border-radius: 0.5rem;
+    }
   }
 `
 

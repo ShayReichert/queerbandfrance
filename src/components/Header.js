@@ -6,13 +6,24 @@ import { BsSearch } from 'react-icons/bs'
 import { IoMenu } from 'react-icons/io5'
 
 const MainTitle = styled.div`
-  display: flex;
-  align-items: center;
+  #burger {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 4.5rem;
+    cursor: pointer;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
 `
+
 const MainSearch = styled.div`
   display: flex;
   align-items: center;
   margin-top: 2rem;
+
   @media screen and (min-width: 768px) {
     margin-right: 12rem;
     margin-top: 0;

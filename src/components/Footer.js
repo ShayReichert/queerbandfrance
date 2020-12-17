@@ -6,8 +6,6 @@ import { FaFacebookF } from 'react-icons/fa'
 import { SiYoutube, SiInstagram } from 'react-icons/si'
 
 const FooterLinks = styled.div`
-  border: 1px solid transparent;
-  margin: 6rem 0;
   text-align: center;
   @media screen and (min-width: 768px) {
     padding-left: 8rem;
@@ -15,21 +13,20 @@ const FooterLinks = styled.div`
   }
 `
 const FooterCopyright = styled.div`
-  border: 1px solid transparent;
   text-align: center;
-  margin: 6rem 0;
   p:nth-of-type(1) {
     text-transform: uppercase;
     font-size: 1.4rem;
   }
 `
 const FooterAsso = styled.div`
-  border: 1px solid transparent;
-  margin: 6rem 0;
   text-align: center;
+
   @media screen and (min-width: 768px) {
     text-align: left;
+    max-width: 40rem;
   }
+
   p {
     padding: 0 8rem;
   }
