@@ -41,7 +41,7 @@ const InfosBand = styled.div`
   max-height: 40%;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 2rem 1.2rem;
   font-family: 'Roboto', Helvetica, sans-serif;
 
   h2 {
@@ -69,38 +69,40 @@ const BtnBand = styled.div`
   }
 `
 
-const Card = ({ name }) => (
-  <Main>
-    <ImgBand className="card__photo">
-      <img src={placeholder} alt="placeholder" />
-    </ImgBand>
-    <InfosBand>
-      <h2>{name}</h2>
-      <p>
-        <span role="img" aria-label="piano">
-          🎹{' '}
-        </span>
-        Punk, Riot
-      </p>
-      <p>
-        <span role="img" aria-label="black square">
-          🔳{' '}
-        </span>
-        Bordeaux, Nouvelle-Aquitaine
-      </p>
-    </InfosBand>
-    <BtnBand className="social-btn-box">
-      <button style={{ '--i': '1' }} aria-label="Bandcamp du groupe">
-        <SiBandcamp />
-      </button>
-      <button style={{ '--i': '2' }} aria-label="Facebook du groupe">
-        <FaFacebookF />
-      </button>
-      <button style={{ '--i': '3' }} aria-label="Instagram gu groupe">
-        <SiInstagram />
-      </button>
-    </BtnBand>
-  </Main>
-)
+const Card = ({ name }) => {
+  return (
+    <Main className="card">
+      <ImgBand className="card__photo">
+        <img src={placeholder} alt="placeholder" />
+      </ImgBand>
+      <InfosBand>
+        <h2>{name}</h2>
+        <p>
+          <span role="img" aria-label="piano">
+            🎹{' '}
+          </span>
+          Punk, Riot
+        </p>
+        <p>
+          <span role="img" aria-label="black square">
+            🔳{' '}
+          </span>
+          Bordeaux, Nouvelle-Aquitaine
+        </p>
+      </InfosBand>
+      <BtnBand className="social-btn-box">
+        <button style={{ '--i': '1' }} aria-label="Bandcamp du groupe">
+          <SiBandcamp />
+        </button>
+        <button style={{ '--i': '2' }} aria-label="Facebook du groupe">
+          <FaFacebookF />
+        </button>
+        <button style={{ '--i': '3' }} aria-label="Instagram gu groupe">
+          <SiInstagram />
+        </button>
+      </BtnBand>
+    </Main>
+  )
+}
 
 export default Card
