@@ -56,22 +56,40 @@ const Title = styled.h1`
   }
 `
 
-const Header = ({ shortTitle }) => (
-  <header>
-    <MainTitle>
-      <Title>
-        <Link to="/">{shortTitle}</Link>
-        <span>France</span>
-      </Title>
-      <IoMenu id="burger" />
-    </MainTitle>
+const Header = ({ shortTitle }) => {
+  const filteredBands = (e) => {
+    e.preventDefault()
+    const bands = Array.from(document.querySelectorAll('.card'))
+    const search = e.target.value.toLowerCase()
 
-    <MainSearch>
-      <BsSearch className="icon" />
-      <SearchInput />
-    </MainSearch>
-  </header>
-)
+    bands.map((band) => {
+      let contentValue = band.textContent || band.innerText
+
+      if (contentValue.toLowerCase().indexOf(search) > -1) {
+        return (band.style.display = '')
+      } else {
+        return (band.style.display = 'none')
+      }
+    })
+  }
+
+  return (
+    <header>
+      <MainTitle>
+        <Title>
+          <Link to="/">{shortTitle}</Link>
+          <span>France</span>
+        </Title>
+        <IoMenu id="burger" />
+      </MainTitle>
+
+      <MainSearch>
+        <BsSearch className="icon" />
+        <SearchInput onChange={filteredBands} />
+      </MainSearch>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
