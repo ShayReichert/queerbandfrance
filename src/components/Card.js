@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { FaFacebookF } from 'react-icons/fa'
-import { SiBandcamp, SiInstagram } from 'react-icons/si'
-
+import Image from 'gatsby-image'
+import CardLinks from './CardLinks'
+import { resizeNames } from '../hooks/useResize'
 import placeholder from '../images/placeholder-img.jpg'
 
 const Main = styled.div`
-  background: rgba(241, 241, 241, 0.05);
+  /* background: rgba(241, 241, 241, 0.05); */
+  background: #d75ee221;
   height: 32rem;
   width: 23rem;
   margin: 0.5rem;
@@ -25,10 +26,10 @@ const Main = styled.div`
     opacity: 1;
   }
 `
-
 const ImgBand = styled.div`
   height: 45%;
   width: 100%;
+  overflow: hidden;
   img {
     border-radius: 0.8rem 0.8rem 0 0;
     height: 100%;
@@ -36,71 +37,101 @@ const ImgBand = styled.div`
     object-fit: cover;
   }
 `
-
 const InfosBand = styled.div`
   max-height: 40%;
   display: flex;
   flex-direction: column;
   padding: 2rem 1.2rem;
   font-family: 'Roboto', Helvetica, sans-serif;
-
   h2 {
     margin: 0 auto;
-    white-space: nowrap;
-    text-transform: uppercase;
-    font-size: 2.6rem;
     margin-bottom: 1rem;
+    font-size: 2.6rem;
     font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
   p {
     font-size: 1.3rem;
     letter-spacing: 0.2px;
     line-height: 1.8;
   }
-`
-
-const BtnBand = styled.div`
-  margin-top: 1rem;
-  button {
-    transform: translateY(80px);
-    opacity: 0;
-    transition: 0.3s;
-    transition-delay: calc(0.1s * var(--i));
+  .smaller1 {
+    font-size: 1rem !important;
+  }
+  .smaller2 {
+    font-size: 1.4rem;
+  }
+  .smaller3 {
+    font-size: 1.5rem;
+  }
+  .smaller4 {
+    font-size: 1.8rem;
+  }
+  .smaller5 {
+    font-size: 2rem;
+  }
+  .city-district {
+    line-height: 1.2;
+    margin-top: 0.3rem;
   }
 `
 
-const Card = ({ name }) => {
+const Card = ({
+  name,
+  name_alt,
+  styles,
+  city,
+  district,
+  image,
+  isQueer,
+  allData,
+}) => {
+  const fluid = image && image.localFiles[0].childImageSharp.fluid
+  useEffect(() => {
+    // Resize names according to their length, to fit in the card
+    const allNames = Array.from(document.querySelectorAll('.resize'))
+    const oneCard = document.querySelector('.card')
+    const cardMaxWidth = parseInt(getComputedStyle(oneCard).width) - 12
+    resizeNames(allNames, cardMaxWidth)
+  }, [])
+
   return (
-    <Main className="card">
+    <Main className={`card ${isQueer ? 'queer' : ''} `}>
       <ImgBand className="card__photo">
-        <img src={placeholder} alt="placeholder" />
+        {fluid ? (
+          <Image
+            fluid={fluid}
+            className="card__img"
+            alt="band"
+            title={name_alt}
+          />
+        ) : (
+          <img
+            src={placeholder}
+            className="card__img"
+            alt="band"
+            title={name_alt}
+          />
+        )}
       </ImgBand>
-      <InfosBand>
-        <h2>{name}</h2>
+      <InfosBand className="card__infos">
+        <h2 className="resize">{name}</h2>
         <p>
           <span role="img" aria-label="piano">
             🎹{' '}
           </span>
-          Punk, Riot
+          {styles.length > 1 ? styles.join(', ') : styles}
+          {allData.other_style && ', ' + allData.other_style}
         </p>
-        <p>
+        <p className="city-district">
           <span role="img" aria-label="black square">
             🔳{' '}
           </span>
-          Bordeaux, Nouvelle-Aquitaine
+          {city}, {district}
         </p>
       </InfosBand>
-      <BtnBand className="social-btn-box">
-        <button style={{ '--i': '1' }} aria-label="Bandcamp du groupe">
-          <SiBandcamp />
-        </button>
-        <button style={{ '--i': '2' }} aria-label="Facebook du groupe">
-          <FaFacebookF />
-        </button>
-        <button style={{ '--i': '3' }} aria-label="Instagram gu groupe">
-          <SiInstagram />
-        </button>
-      </BtnBand>
+      <CardLinks links={allData} />
     </Main>
   )
 }

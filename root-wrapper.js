@@ -158,9 +158,9 @@ h1 {
 }
 .social-btn-box {
   margin: auto;
-  width: 13rem;
+  width: 19rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   button {
     outline: none;
     height: 3.2rem;
@@ -210,6 +210,9 @@ main {
     height: calc(100vh - 6rem);
     margin-bottom: initial;
   }
+}
+.queer {
+  background: #00b1ff17 !important;
 }
 main::before {
   @media screen and (min-width: 768px) {
