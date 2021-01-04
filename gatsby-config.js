@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `QueerBand - France`,
@@ -41,6 +45,20 @@ module.exports = {
         theme_color: `#000`,
         display: `minimal-ui`,
         icon: `src/images/queerband-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.GATSBY_AIRTABLE_API,
+        concurrency: 5,
+        tables: [
+          {
+            baseId: process.env.GATSBY_AIRTABLE_BASE_ID,
+            tableName: `Bands`,
+            mapping: { image: `fileNode` }, // optional, e.g. "text/markdown", "fileNode"
+          },
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

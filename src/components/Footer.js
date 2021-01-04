@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-
 import { FaFacebookF } from 'react-icons/fa'
 import { SiYoutube, SiInstagram } from 'react-icons/si'
 
@@ -31,7 +30,6 @@ const FooterAsso = styled.div`
     padding: 0 8rem;
   }
 `
-
 const BtnFooter = styled.div`
   margin-top: 2rem;
 `
@@ -49,7 +47,6 @@ const Footer = ({ title }) => {
         <br />
         <a href="mailto:shay.reichert@outlook.fr">Contact</a>
       </FooterLinks>
-
       <FooterCopyright className="footer-parts">
         <p>
           {' '}
@@ -62,7 +59,6 @@ const Footer = ({ title }) => {
           </span>{' '}
           by <a href="mailto:shay.reichert@outlook.fr">Shay Reichert</a>
         </p>
-
         <BtnFooter className="social-btn-box">
           <a
             href="https://www.youtube.com/channel/UCTu84B1flb--aF4jzfeh-eQ"
@@ -73,7 +69,6 @@ const Footer = ({ title }) => {
               <SiYoutube />
             </button>
           </a>
-
           <a
             href="https://www.facebook.com/THISISARIOT"
             target="_blank"
@@ -83,7 +78,6 @@ const Footer = ({ title }) => {
               <FaFacebookF />
             </button>
           </a>
-
           <a
             href="https://www.instagram.com/this_is_a_riot/"
             target="_blank"
@@ -95,7 +89,6 @@ const Footer = ({ title }) => {
           </a>
         </BtnFooter>
       </FooterCopyright>
-
       <FooterAsso className="footer-parts">
         <p>
           L’association{' '}
@@ -112,5 +105,4 @@ const Footer = ({ title }) => {
     </footer>
   )
 }
-
 export default Footer
