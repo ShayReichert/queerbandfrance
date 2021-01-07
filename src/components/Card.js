@@ -121,8 +121,10 @@ const Card = ({
           <span role="img" aria-label="piano">
             🎹{' '}
           </span>
-          {styles.length > 1 ? styles.join(', ') : styles}
-          {allData.other_style && ', ' + allData.other_style}
+          <span className="card__styles">
+            {styles.length > 1 ? styles.join(', ') : styles}
+            {allData.other_style && ', ' + allData.other_style}
+          </span>
         </p>
         <p className="city-district">
           <span role="img" aria-label="black square">

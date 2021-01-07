@@ -95,6 +95,7 @@ const GridCards = styled.div`
 `
 
 const MainGrids = ({ bands, styles }) => {
+  // MAP
   useEffect(() => {
     const regions = Array.from(document.querySelectorAll('[data-name]'))
     const displayNameBelow = document.querySelector('.gridmap')
@@ -116,6 +117,8 @@ const MainGrids = ({ bands, styles }) => {
       region.addEventListener('mouseout', hideName)
     })
   }, [])
+
+  // MENU
   useEffect(() => {
     const burger = document.querySelector('#burger')
 
@@ -125,6 +128,57 @@ const MainGrids = ({ bands, styles }) => {
     burger.addEventListener('click', toggleMenu)
   }, [])
 
+  // STYLES
+  useEffect(() => {
+    const styles = Array.from(document.querySelectorAll('.band-style'))
+    const bands = Array.from(document.querySelectorAll('.card'))
+    const allStyles = []
+
+    function toggleClass() {
+      const style = this.textContent
+      this.classList.toggle('active')
+      if (this.classList.contains('active')) {
+        pushStyle(style)
+      } else {
+        removeStyle(style)
+      }
+    }
+
+    function pushStyle(style) {
+      allStyles.push(style)
+      handleDisplayBands(allStyles)
+    }
+
+    function removeStyle(style) {
+      const index = allStyles.indexOf(style)
+      if (index > -1) {
+        allStyles.splice(index, 1)
+      }
+      handleDisplayBands(allStyles)
+    }
+
+    function handleDisplayBands(allStyles) {
+      if (allStyles.length > 0) {
+        bands.map((band) => {
+          const bandsStyle = band.children[1].children[1].innerText
+          if (allStyles.some((style) => bandsStyle.includes(style))) {
+            return (band.style.display = '')
+          } else {
+            return (band.style.display = 'none')
+          }
+        })
+      } else {
+        bands.map((band) => {
+          return (band.style.display = '')
+        })
+      }
+    }
+
+    styles.map((style) => {
+      return style.addEventListener('click', toggleClass)
+    })
+  }, [])
+
   return (
     <MainGrid>
       <GridMap className="bloc1">
@@ -132,6 +186,8 @@ const MainGrids = ({ bands, styles }) => {
         <p className="gridmap"></p>
       </GridMap>
       <GridStyles className="bloc2">
+        {/* si aucun style n'est "active", return toutes les bandCards */}
+        {/* Sinon filter(band) band.styles.includes(style.name) */}
         <ul>
           {styles.map((style, key) => {
             return <Style name={style} key={key} />
