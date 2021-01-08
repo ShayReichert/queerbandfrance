@@ -7,7 +7,7 @@ import placeholder from '../images/placeholder-img.jpg'
 
 const Main = styled.div`
   /* background: rgba(241, 241, 241, 0.05); */
-  background: #d75ee221;
+  background: #00b1ff17;
   height: 32rem;
   width: 23rem;
   margin: 0.5rem;

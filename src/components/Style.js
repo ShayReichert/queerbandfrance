@@ -26,15 +26,8 @@ const StyleLi = styled.li`
 `
 
 const Style = ({ name }) => {
-  // const [isActive, setIsActive] = useState(false)
-  // let toggleActive = ''
-  // isActive && (toggleActive = 'active')
-
   return (
     <>
-      {/* <StyleLi onClick={() => setIsActive(!isActive)} className={toggleActive}>
-        {name}
-      </StyleLi> */}
       <StyleLi className="band-style">{name}</StyleLi>
     </>
   )

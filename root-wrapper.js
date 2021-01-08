@@ -212,7 +212,7 @@ main {
   }
 }
 .queer {
-  background: #00b1ff17 !important;
+  background: #d75ee221 !important;
 }
 main::before {
   @media screen and (min-width: 768px) {

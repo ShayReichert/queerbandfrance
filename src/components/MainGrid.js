@@ -132,7 +132,7 @@ const MainGrids = ({ bands, styles }) => {
   useEffect(() => {
     const styles = Array.from(document.querySelectorAll('.band-style'))
     const bands = Array.from(document.querySelectorAll('.card'))
-    const allStyles = []
+    const checkedStyles = []
 
     function toggleClass() {
       const style = this.textContent
@@ -143,31 +143,31 @@ const MainGrids = ({ bands, styles }) => {
         removeStyle(style)
       }
     }
-
     function pushStyle(style) {
-      allStyles.push(style)
-      handleDisplayBands(allStyles)
+      checkedStyles.push(style)
+      handleDisplayBands(checkedStyles)
     }
 
     function removeStyle(style) {
-      const index = allStyles.indexOf(style)
+      const index = checkedStyles.indexOf(style)
       if (index > -1) {
-        allStyles.splice(index, 1)
+        checkedStyles.splice(index, 1)
       }
-      handleDisplayBands(allStyles)
+      handleDisplayBands(checkedStyles)
     }
 
-    function handleDisplayBands(allStyles) {
-      if (allStyles.length > 0) {
+    function handleDisplayBands(checkedStyles) {
+      if (checkedStyles.length > 0) {
         bands.map((band) => {
           const bandsStyle = band.children[1].children[1].innerText
-          if (allStyles.some((style) => bandsStyle.includes(style))) {
+          if (checkedStyles.some((style) => bandsStyle.includes(style))) {
             return (band.style.display = '')
           } else {
             return (band.style.display = 'none')
           }
         })
       } else {
+        // if no styles are checked, display all band cards
         bands.map((band) => {
           return (band.style.display = '')
         })
@@ -186,8 +186,6 @@ const MainGrids = ({ bands, styles }) => {
         <p className="gridmap"></p>
       </GridMap>
       <GridStyles className="bloc2">
-        {/* si aucun style n'est "active", return toutes les bandCards */}
-        {/* Sinon filter(band) band.styles.includes(style.name) */}
         <ul>
           {styles.map((style, key) => {
             return <Style name={style} key={key} />
