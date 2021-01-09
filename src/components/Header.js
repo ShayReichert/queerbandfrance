@@ -92,11 +92,11 @@ const Header = ({ shortTitle }) => {
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  shortTitle: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  shortTitle: ``,
 }
 
 export default Header

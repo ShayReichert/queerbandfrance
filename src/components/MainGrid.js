@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { stylesFilter, districtsFilter } from '../hooks/useFilters'
 import styled from 'styled-components'
 import Card from '../components/Card'
 import Style from '../components/Style'
@@ -97,31 +98,15 @@ const GridCards = styled.div`
 const MainGrids = ({ bands, styles }) => {
   // MAP
   useEffect(() => {
-    const regions = Array.from(document.querySelectorAll('[data-name]'))
+    const districts = Array.from(document.querySelectorAll('[data-name]'))
+    const bands = Array.from(document.querySelectorAll('.card'))
     const displayNameBelow = document.querySelector('.gridmap')
-
-    function toggleClass() {
-      const path = this.firstElementChild
-      path.classList.toggle('active')
-    }
-    function displayName() {
-      displayNameBelow.innerHTML = `${this.dataset.name}`
-    }
-    function hideName() {
-      displayNameBelow.innerHTML = ``
-    }
-    // eslint-disable-next-line
-    regions.map((region) => {
-      region.addEventListener('click', toggleClass)
-      region.addEventListener('mouseover', displayName)
-      region.addEventListener('mouseout', hideName)
-    })
+    districtsFilter(districts, bands, displayNameBelow)
   }, [])
 
   // MENU
   useEffect(() => {
     const burger = document.querySelector('#burger')
-
     function toggleMenu() {
       document.body.classList.toggle('menu-active')
     }
@@ -132,51 +117,7 @@ const MainGrids = ({ bands, styles }) => {
   useEffect(() => {
     const styles = Array.from(document.querySelectorAll('.band-style'))
     const bands = Array.from(document.querySelectorAll('.card'))
-    const checkedStyles = []
-
-    function toggleClass() {
-      const style = this.textContent
-      this.classList.toggle('active')
-      if (this.classList.contains('active')) {
-        pushStyle(style)
-      } else {
-        removeStyle(style)
-      }
-    }
-    function pushStyle(style) {
-      checkedStyles.push(style)
-      handleDisplayBands(checkedStyles)
-    }
-
-    function removeStyle(style) {
-      const index = checkedStyles.indexOf(style)
-      if (index > -1) {
-        checkedStyles.splice(index, 1)
-      }
-      handleDisplayBands(checkedStyles)
-    }
-
-    function handleDisplayBands(checkedStyles) {
-      if (checkedStyles.length > 0) {
-        bands.map((band) => {
-          const bandsStyle = band.children[1].children[1].innerText
-          if (checkedStyles.some((style) => bandsStyle.includes(style))) {
-            return (band.style.display = '')
-          } else {
-            return (band.style.display = 'none')
-          }
-        })
-      } else {
-        // if no styles are checked, display all band cards
-        bands.map((band) => {
-          return (band.style.display = '')
-        })
-      }
-    }
-
-    styles.map((style) => {
-      return style.addEventListener('click', toggleClass)
-    })
+    stylesFilter(styles, bands)
   }, [])
 
   return (

@@ -21,6 +21,7 @@ const StyleLi = styled.li`
       color: white;
       background: #181a22;
       border-radius: 0.5rem;
+      opacity: 0.8;
     }
   }
 `
