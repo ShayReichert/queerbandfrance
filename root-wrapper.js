@@ -250,11 +250,11 @@ main #map_france path {
 }
 main #map_france path:hover {
   @media screen and (min-width: 768px) {
-    fill: rgba(114, 187, 255, 0.78);
+    fill: rgba(114, 187, 255, 0.58);
   }
 }
 main #map_france .active {
-  fill: rgba(114, 187, 255, 0.58);
+  fill: rgba(114, 187, 255, 0.78);
 }
 
 main .mentions-conditions {

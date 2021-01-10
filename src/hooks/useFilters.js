@@ -2,6 +2,8 @@ export function stylesFilter(styles, bands) {
   const checkedStyles = []
 
   function toggleClass() {
+    // removeActiveDistricts()
+
     const style = this.textContent
     this.classList.toggle('active')
     if (this.classList.contains('active')) {
@@ -10,6 +12,15 @@ export function stylesFilter(styles, bands) {
       removeStyle(style)
     }
   }
+
+  // function removeActiveDistricts() {
+  //   const districts = Array.from(
+  //     document.querySelectorAll('[data-name] > path')
+  //   )
+  //   return districts.map((district) => {
+  //     return district.classList.remove('active')
+  //   })
+  // }
 
   function pushStyle(style) {
     checkedStyles.push(style)
@@ -51,6 +62,8 @@ export function districtsFilter(districts, bands, displayNameBelow) {
   const checkedDistricts = []
 
   function toggleClass() {
+    // removeActiveStyles()
+
     const path = this.firstElementChild
     const district = this.dataset.name
     path.classList.toggle('active')
@@ -60,6 +73,13 @@ export function districtsFilter(districts, bands, displayNameBelow) {
       removeDistrict(district)
     }
   }
+
+  // function removeActiveStyles() {
+  //   const styles = Array.from(document.querySelectorAll('.band-style'))
+  //   styles.map((style) => {
+  //     return style.classList.remove('active')
+  //   })
+  // }
 
   function pushDistrict(district) {
     checkedDistricts.push(district)
