@@ -2,8 +2,6 @@ export function stylesFilter(styles, bands) {
   const checkedStyles = []
 
   function toggleClass() {
-    // removeActiveDistricts()
-
     const style = this.textContent
     this.classList.toggle('active')
     if (this.classList.contains('active')) {
@@ -12,15 +10,6 @@ export function stylesFilter(styles, bands) {
       removeStyle(style)
     }
   }
-
-  // function removeActiveDistricts() {
-  //   const districts = Array.from(
-  //     document.querySelectorAll('[data-name] > path')
-  //   )
-  //   return districts.map((district) => {
-  //     return district.classList.remove('active')
-  //   })
-  // }
 
   function pushStyle(style) {
     checkedStyles.push(style)
@@ -58,12 +47,15 @@ export function stylesFilter(styles, bands) {
   })
 }
 
-export function districtsFilter(districts, bands, displayNameBelow) {
+export function districtsFilter(
+  districts,
+  bands,
+  displayNameBelow,
+  allDistricts
+) {
   const checkedDistricts = []
 
   function toggleClass() {
-    // removeActiveStyles()
-
     const path = this.firstElementChild
     const district = this.dataset.name
     path.classList.toggle('active')
@@ -73,13 +65,6 @@ export function districtsFilter(districts, bands, displayNameBelow) {
       removeDistrict(district)
     }
   }
-
-  // function removeActiveStyles() {
-  //   const styles = Array.from(document.querySelectorAll('.band-style'))
-  //   styles.map((style) => {
-  //     return style.classList.remove('active')
-  //   })
-  // }
 
   function pushDistrict(district) {
     checkedDistricts.push(district)
@@ -115,8 +100,16 @@ export function districtsFilter(districts, bands, displayNameBelow) {
   }
 
   function displayName() {
-    displayNameBelow.innerHTML = `${this.dataset.name}`
+    const hoverDistrict = this.dataset.name
+    const matchDistrict = allDistricts.filter(
+      (district) => district.fieldValue === hoverDistrict
+    )
+    const totalBands =
+      matchDistrict.length > 0 ? matchDistrict[0].totalCount : 0
+
+    displayNameBelow.innerHTML = `${hoverDistrict} : ${totalBands}`
   }
+
   function hideName() {
     displayNameBelow.innerHTML = ``
   }

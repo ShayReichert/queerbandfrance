@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import CookieConsent from 'react-cookie-consent'
+import { Link } from 'gatsby'
 import { stylesFilter, districtsFilter } from '../hooks/useFilters'
 import styled from 'styled-components'
 import Card from '../components/Card'
@@ -95,14 +97,14 @@ const GridCards = styled.div`
   }
 `
 
-const MainGrids = ({ bands, styles }) => {
+const MainGrids = ({ bands, styles, allDistricts }) => {
   // MAP
   useEffect(() => {
     const districts = Array.from(document.querySelectorAll('[data-name]'))
     const bands = Array.from(document.querySelectorAll('.card'))
     const displayNameBelow = document.querySelector('.gridmap')
-    districtsFilter(districts, bands, displayNameBelow)
-  }, [])
+    districtsFilter(districts, bands, displayNameBelow, allDistricts)
+  }, [allDistricts])
 
   // MENU
   useEffect(() => {
@@ -159,6 +161,22 @@ const MainGrids = ({ bands, styles }) => {
           )
         })}
       </GridCards>
+      <CookieConsent
+        debug={true}
+        disableStyles={true}
+        containerClasses="cookie-container"
+        contentClasses="cookie-content"
+        buttonClasses="cookie-btn"
+        buttonText="J'ai compris !"
+      >
+        Ce site Web utilise des cookies pour améliorer l'expérience
+        utilisateur.&nbsp;&nbsp;
+        <Link to="/mentions-legales/#cookies">
+          <span style={{ fontSize: '10px' }}>
+            Voir mentions légales relatives aux cookies
+          </span>
+        </Link>
+      </CookieConsent>
     </MainGrid>
   )
 }
