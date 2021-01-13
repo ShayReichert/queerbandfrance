@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react'
+import CookieConsent from 'react-cookie-consent'
+import { Link } from 'gatsby'
+import { stylesFilter, districtsFilter } from '../hooks/useFilters'
 import styled from 'styled-components'
 import Card from '../components/Card'
 import Style from '../components/Style'
@@ -94,35 +97,29 @@ const GridCards = styled.div`
   }
 `
 
-const MainGrids = ({ bands, styles }) => {
+const MainGrids = ({ bands, styles, allDistricts }) => {
+  // MAP
   useEffect(() => {
-    const regions = Array.from(document.querySelectorAll('[data-name]'))
+    const districts = Array.from(document.querySelectorAll('[data-name]'))
+    const bands = Array.from(document.querySelectorAll('.card'))
     const displayNameBelow = document.querySelector('.gridmap')
+    districtsFilter(districts, bands, displayNameBelow, allDistricts)
+  }, [allDistricts])
 
-    function toggleClass() {
-      const path = this.firstElementChild
-      path.classList.toggle('active')
-    }
-    function displayName() {
-      displayNameBelow.innerHTML = `${this.dataset.name}`
-    }
-    function hideName() {
-      displayNameBelow.innerHTML = ``
-    }
-    // eslint-disable-next-line
-    regions.map((region) => {
-      region.addEventListener('click', toggleClass)
-      region.addEventListener('mouseover', displayName)
-      region.addEventListener('mouseout', hideName)
-    })
-  }, [])
+  // MENU
   useEffect(() => {
     const burger = document.querySelector('#burger')
-
     function toggleMenu() {
       document.body.classList.toggle('menu-active')
     }
     burger.addEventListener('click', toggleMenu)
+  }, [])
+
+  // STYLES
+  useEffect(() => {
+    const styles = Array.from(document.querySelectorAll('.band-style'))
+    const bands = Array.from(document.querySelectorAll('.card'))
+    stylesFilter(styles, bands)
   }, [])
 
   return (
@@ -164,6 +161,22 @@ const MainGrids = ({ bands, styles }) => {
           )
         })}
       </GridCards>
+      <CookieConsent
+        debug={true}
+        disableStyles={true}
+        containerClasses="cookie-container"
+        contentClasses="cookie-content"
+        buttonClasses="cookie-btn"
+        buttonText="J'ai compris !"
+      >
+        Ce site Web utilise des cookies pour améliorer l'expérience
+        utilisateur.&nbsp;&nbsp;
+        <Link to="/mentions-legales/#cookies">
+          <span style={{ fontSize: '10px' }}>
+            Voir mentions légales relatives aux cookies
+          </span>
+        </Link>
+      </CookieConsent>
     </MainGrid>
   )
 }

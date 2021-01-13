@@ -7,16 +7,16 @@ import MainGrids from '../components/MainGrid'
 const IndexPage = ({ data }) => {
   const {
     allAirtable: { nodes: bands },
+    allAirtable: { allStyles },
+    allAirtable: { allDistricts },
   } = data
-  const {
-    allAirtable: { group: allStyles },
-  } = data
+
   const styles = Array.from(allStyles.map((style) => style.fieldValue))
 
   return (
     <Layout>
       <SEO title="Home" />
-      <MainGrids bands={bands} styles={styles} />
+      <MainGrids bands={bands} styles={styles} allDistricts={allDistricts} />
     </Layout>
   )
 }
@@ -53,8 +53,12 @@ export const query = graphql`
           }
         }
       }
-      group(field: data___style) {
+      allStyles: group(field: data___style) {
         fieldValue
+      }
+      allDistricts: group(field: data___district) {
+        fieldValue
+        totalCount
       }
     }
   }

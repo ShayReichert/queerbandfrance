@@ -62,6 +62,8 @@ const Header = ({ shortTitle }) => {
     const bands = Array.from(document.querySelectorAll('.card'))
     const search = e.target.value.toLowerCase()
 
+    removeActiveStyle()
+
     bands.map((band) => {
       let contentValue = band.textContent || band.innerText
 
@@ -70,6 +72,20 @@ const Header = ({ shortTitle }) => {
       } else {
         return (band.style.display = 'none')
       }
+    })
+  }
+
+  const removeActiveStyle = () => {
+    const styles = Array.from(document.querySelectorAll('.band-style'))
+    const districts = Array.from(
+      document.querySelectorAll('[data-name] > path')
+    )
+
+    styles.map((style) => {
+      return style.classList.remove('active')
+    })
+    districts.map((district) => {
+      return district.classList.remove('active')
     })
   }
 
@@ -92,11 +108,11 @@ const Header = ({ shortTitle }) => {
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  shortTitle: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  shortTitle: ``,
 }
 
 export default Header

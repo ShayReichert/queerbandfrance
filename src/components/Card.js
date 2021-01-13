@@ -7,7 +7,7 @@ import placeholder from '../images/placeholder-img.jpg'
 
 const Main = styled.div`
   /* background: rgba(241, 241, 241, 0.05); */
-  background: #d75ee221;
+  background: #00b1ff17;
   height: 32rem;
   width: 23rem;
   margin: 0.5rem;
@@ -121,8 +121,10 @@ const Card = ({
           <span role="img" aria-label="piano">
             🎹{' '}
           </span>
-          {styles.length > 1 ? styles.join(', ') : styles}
-          {allData.other_style && ', ' + allData.other_style}
+          <span className="card__styles">
+            {styles.length > 1 ? styles.join(', ') : styles}
+            {allData.other_style && ', ' + allData.other_style}
+          </span>
         </p>
         <p className="city-district">
           <span role="img" aria-label="black square">
