@@ -122,6 +122,7 @@ body {
   line-height: 1;
   font-size: 1.2em;
   background: var(--main-bg);
+  font-family: 'Roboto',Helvetica,sans-serif;
 }
 ol,
 ul {
@@ -212,7 +213,7 @@ main {
   }
 }
 .queer {
-  background: #00b1ff17 !important;
+  background: #d75ee221 !important;
 }
 main::before {
   @media screen and (min-width: 768px) {
@@ -250,11 +251,11 @@ main #map_france path {
 }
 main #map_france path:hover {
   @media screen and (min-width: 768px) {
-    fill: rgba(114, 187, 255, 0.78);
+    fill: rgba(114, 187, 255, 0.58);
   }
 }
 main #map_france .active {
-  fill: rgba(114, 187, 255, 0.58);
+  fill: rgba(114, 187, 255, 0.78);
 }
 
 main .mentions-conditions {
@@ -322,6 +323,37 @@ footer .footer-parts {
   }
 }
 
+.cookie-container {
+  bottom: 0px;
+  background: #383838cf;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  left: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+.cookie-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1 0 300px;
+  margin: 15px;
+}
+.cookie-btn {
+  font-size: 13px;
+  background: rgba(114, 187, 255, 0.38);
+  border: 0px;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  margin: 15px;
+}
 
 `
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const StyleLi = styled.li`
@@ -21,20 +21,15 @@ const StyleLi = styled.li`
       color: white;
       background: #181a22;
       border-radius: 0.5rem;
+      opacity: 0.8;
     }
   }
 `
 
 const Style = ({ name }) => {
-  const [isActive, setIsActive] = useState(false)
-  let toggleActive = ''
-  isActive && (toggleActive = 'active')
-
   return (
     <>
-      <StyleLi onClick={() => setIsActive(!isActive)} className={toggleActive}>
-        {name}
-      </StyleLi>
+      <StyleLi className="band-style">{name}</StyleLi>
     </>
   )
 }
