@@ -45,6 +45,13 @@ export function stylesFilter(styles, bands) {
   styles.map((style) => {
     return style.addEventListener('click', toggleClass)
   })
+
+  // CLEAN USEEFFECT
+  return function () {
+    styles.map((style) => {
+      return style.removeEventListener('click', toggleClass)
+    })
+  }
 }
 
 export function districtsFilter(
@@ -53,7 +60,7 @@ export function districtsFilter(
   displayNameBelow,
   allDistricts
 ) {
-  const checkedDistricts = []
+  let checkedDistricts = []
 
   function toggleClass() {
     const path = this.firstElementChild
@@ -120,4 +127,14 @@ export function districtsFilter(
     district.addEventListener('mouseover', displayName)
     district.addEventListener('mouseout', hideName)
   })
+
+  // CLEAN USEEFFECT
+  return function () {
+    // eslint-disable-next-line
+    districts.map((district) => {
+      district.removeEventListener('click', toggleClass)
+      district.removeEventListener('mouseover', displayName)
+      district.removeEventListener('mouseout', hideName)
+    })
+  }
 }
