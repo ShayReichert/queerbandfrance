@@ -87,34 +87,32 @@ const GridCards = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  @media screen and (min-width: 1240px) {
-    justify-content: space-between;
-  }
+  align-items: center;
   @media screen and (min-width: 1440px) {
     max-width: 100.8rem;
     margin: 0 auto;
-    justify-content: flex-start;
   }
 `
 
-const MainGrids = ({ bands, styles, allDistricts }) => {
+const MainGrids = ({
+  bands,
+  styles,
+  allDistricts,
+  checkedDistricts,
+  checkedStyles,
+}) => {
   // MAP
   useEffect(() => {
-    const districts = Array.from(document.querySelectorAll('[data-name]'))
-    const bands = Array.from(document.querySelectorAll('.card'))
-    const displayNameBelow = document.querySelector('.gridmap')
-    districtsFilter(districts, bands, displayNameBelow, allDistricts)
-  }, [allDistricts])
+    districtsFilter(checkedDistricts, allDistricts)
+  }, [checkedDistricts, allDistricts])
 
   // MENU
   useEffect(() => {
     const burger = document.querySelector('#burger')
-
     function toggleMenu() {
       document.body.classList.toggle('menu-active')
     }
     burger.addEventListener('click', toggleMenu)
-
     return function () {
       burger.removeEventListener('click', toggleMenu)
     }
@@ -122,10 +120,8 @@ const MainGrids = ({ bands, styles, allDistricts }) => {
 
   // STYLES
   useEffect(() => {
-    const styles = Array.from(document.querySelectorAll('.band-style'))
-    const bands = Array.from(document.querySelectorAll('.card'))
-    stylesFilter(styles, bands)
-  }, [])
+    stylesFilter(checkedStyles)
+  }, [checkedStyles])
 
   return (
     <MainGrid>

@@ -56,7 +56,7 @@ const Title = styled.h1`
   }
 `
 
-const Header = ({ shortTitle }) => {
+const Header = ({ shortTitle, removeActiveStyle }) => {
   const filteredBands = (e) => {
     e.preventDefault()
     const bands = Array.from(document.querySelectorAll('.card'))
@@ -72,20 +72,6 @@ const Header = ({ shortTitle }) => {
       } else {
         return (band.style.display = 'none')
       }
-    })
-  }
-
-  const removeActiveStyle = () => {
-    const styles = Array.from(document.querySelectorAll('.band-style'))
-    const districts = Array.from(
-      document.querySelectorAll('[data-name] > path')
-    )
-
-    styles.map((style) => {
-      return style.classList.remove('active')
-    })
-    districts.map((district) => {
-      return district.classList.remove('active')
     })
   }
 

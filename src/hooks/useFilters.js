@@ -1,5 +1,6 @@
-export function stylesFilter(styles, bands) {
-  const checkedStyles = []
+export function stylesFilter(checkedStyles) {
+  const styles = Array.from(document.querySelectorAll('.band-style'))
+  const bandsCard = Array.from(document.querySelectorAll('.card'))
 
   function toggleClass() {
     const style = this.textContent
@@ -26,7 +27,7 @@ export function stylesFilter(styles, bands) {
 
   function handleDisplayBands(checkedStyles) {
     if (checkedStyles.length > 0) {
-      bands.map((band) => {
+      bandsCard.map((band) => {
         const bandsStyle = band.children[1].children[1].innerText
         if (checkedStyles.some((style) => bandsStyle.includes(style))) {
           return (band.style.display = '')
@@ -36,7 +37,7 @@ export function stylesFilter(styles, bands) {
       })
     } else {
       // if no styles are checked, display all band cards
-      bands.map((band) => {
+      bandsCard.map((band) => {
         return (band.style.display = '')
       })
     }
@@ -46,7 +47,7 @@ export function stylesFilter(styles, bands) {
     return style.addEventListener('click', toggleClass)
   })
 
-  // CLEAN USEEFFECT
+  //// CLEAN USEEFFECT ////
   return function () {
     styles.map((style) => {
       return style.removeEventListener('click', toggleClass)
@@ -54,13 +55,10 @@ export function stylesFilter(styles, bands) {
   }
 }
 
-export function districtsFilter(
-  districts,
-  bands,
-  displayNameBelow,
-  allDistricts
-) {
-  let checkedDistricts = []
+export function districtsFilter(checkedDistricts, allDistricts) {
+  const bandsCard = Array.from(document.querySelectorAll('.card'))
+  const districts = Array.from(document.querySelectorAll('[data-name]'))
+  const displayNameBelow = document.querySelector('.gridmap')
 
   function toggleClass() {
     const path = this.firstElementChild
@@ -88,7 +86,7 @@ export function districtsFilter(
 
   function handleDisplayDistricts(checkedDistricts) {
     if (checkedDistricts.length > 0) {
-      bands.map((band) => {
+      bandsCard.map((band) => {
         const bandsDistrict = band.children[1].children[2].innerText
         if (
           checkedDistricts.some((district) => bandsDistrict.includes(district))
@@ -100,7 +98,7 @@ export function districtsFilter(
       })
     } else {
       // if no styles are checked, display all band cards
-      bands.map((band) => {
+      bandsCard.map((band) => {
         return (band.style.display = '')
       })
     }
@@ -128,7 +126,7 @@ export function districtsFilter(
     district.addEventListener('mouseout', hideName)
   })
 
-  // CLEAN USEEFFECT
+  //// CLEAN USEEFFECT ////
   return function () {
     // eslint-disable-next-line
     districts.map((district) => {
