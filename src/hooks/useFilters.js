@@ -36,7 +36,7 @@ export function stylesFilter(checkedStyles) {
         }
       })
     } else {
-      // if no styles are checked, display all band cards
+      // If no styles are checked, display all band cards
       bandsCard.map((band) => {
         return (band.style.display = '')
       })
