@@ -1,17 +1,23 @@
 test('Toggle "active" class on click on styles buttons', function () {
-  const styleButtons = Array.from(document.querySelectorAll('.band-style'))
-  expect(styleButtons).not.toBeNull()
+  document.addEventListener('DOMContentLoaded', function () {
+    const firstButtons = document.querySelector('.band-style')
+    expect(firstButtons).not.toBeNull()
 
-  styleButtons.map((styleButton) => {
-    styleButton.click()
-    expect(styleButton.toHaveClass('active'))
-    styleButton.click()
-    expect(styleButton.not.toHaveClass('active'))
+    firstButtons.click()
+    expect(firstButtons.toHaveClass('active'))
+    firstButtons.click()
+    expect(firstButtons.not.toHaveClass('active'))
   })
 })
 
 test('Toggle "active" class on click on districts buttons', function () {
-  const districtsButtons = Array.from(document.querySelectorAll('path'))
-  expect(districtsButtons).not.toBeNull()
+  document.addEventListener('DOMContentLoaded', function () {
+    const firstDistrict = document.querySelector('svg > g > g > path')
+    expect(firstDistrict).not.toBeNull()
+
+    firstDistrict.click()
+    expect(firstDistrict.toHaveClass('active'))
+    firstDistrict.click()
+    expect(firstDistrict.not.toHaveClass('active'))
+  })
 })
-// Continuer à écrire ce test
