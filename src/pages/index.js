@@ -10,13 +10,38 @@ const IndexPage = ({ data }) => {
     allAirtable: { allStyles },
     allAirtable: { allDistricts },
   } = data
-
   const styles = Array.from(allStyles.map((style) => style.fieldValue))
 
+  // Clean all styles and districts checked on search into the search bar
+  let checkedStyles = []
+  let checkedDistricts = []
+
+  const removeActiveStyle = () => {
+    const styles = Array.from(document.querySelectorAll('.band-style'))
+    const districts = Array.from(
+      document.querySelectorAll('[data-name] > path')
+    )
+
+    styles.map((style) => {
+      return style.classList.remove('active')
+    })
+    checkedStyles.splice(0, checkedStyles.length)
+    districts.map((district) => {
+      return district.classList.remove('active')
+    })
+    checkedDistricts.splice(0, checkedDistricts.length)
+  }
+
   return (
-    <Layout>
+    <Layout removeActiveStyle={removeActiveStyle}>
       <SEO title="Home" />
-      <MainGrids bands={bands} styles={styles} allDistricts={allDistricts} />
+      <MainGrids
+        bands={bands}
+        styles={styles}
+        allDistricts={allDistricts}
+        checkedDistricts={checkedDistricts}
+        checkedStyles={checkedStyles}
+      />
     </Layout>
   )
 }

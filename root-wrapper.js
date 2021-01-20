@@ -344,7 +344,7 @@ footer .footer-parts {
 }
 .cookie-btn {
   font-size: 13px;
-  background: rgba(114, 187, 255, 0.38);
+  background: #72bbff61;
   border: 0px;
   border-radius: 3px;
   box-shadow: none;
@@ -353,6 +353,9 @@ footer .footer-parts {
   flex: 0 0 auto;
   padding: 5px 10px;
   margin: 15px;
+}
+.cookie-btn:hover {
+  background: #72bbff80;
 }
 
 `
