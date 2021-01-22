@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LoaderGIF from './images/logo-animated.gif'
+import SpinnerSVG from './images/spinner1.svg'
 
 export default function HTML(props) {
   return (
@@ -33,10 +33,10 @@ export default function HTML(props) {
           }}
         >
           <img
-            src={LoaderGIF}
+            src={SpinnerSVG}
             alt="loading spinner"
-            width="150"
-            height="150"
+            width="64"
+            height="64"
             style={{
               filter: 'drop-shadow(0 0 0.75rem #f8f8f8)',
             }}
