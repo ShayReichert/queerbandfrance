@@ -34,7 +34,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout removeActiveStyle={removeActiveStyle}>
-      <SEO title="Home" />
+      <SEO title="QueerBand - France" />
       <MainGrids
         bands={bands}
         styles={styles}

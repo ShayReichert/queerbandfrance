@@ -37,7 +37,9 @@ export default function HTML(props) {
             alt="loading spinner"
             width="150"
             height="150"
-            style={{ filter: 'drop-shadow(0 0 0.75rem #f8f8f8)' }}
+            style={{
+              filter: 'drop-shadow(0 0 0.75rem #f8f8f8)',
+            }}
           />
         </div>
         <div

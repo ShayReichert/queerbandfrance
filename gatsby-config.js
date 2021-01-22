@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `QueerBand - France`,
     shortTitle: `QueerBand`,
-    description: `Groupes queers et féministes de France, par régions et par styles.`,
+    description: `Répertoire de groupes queers et féministes ! (France)`,
     author: `@ShayReichert`,
     siteUrl: 'https://queerbandfrance.com/',
     image: '/images/share.jpg',
