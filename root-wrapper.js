@@ -358,6 +358,25 @@ footer .footer-parts {
   background: #72bbff80;
 }
 
+/* Scroll bars
+En teste, à retirer si ne fonctionne pas */
+* {
+  scrollbar-color: transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 1px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+}
 `
 
 export const wrapRootElement = ({ element }) => {

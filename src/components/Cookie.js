@@ -5,7 +5,6 @@ import CookieConsent from 'react-cookie-consent'
 const Cookie = () => {
   return (
     <CookieConsent
-      debug={true}
       disableStyles={true}
       containerClasses="cookie-container"
       contentClasses="cookie-content"

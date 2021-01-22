@@ -4,7 +4,7 @@ import SEO from '../components/seo'
 
 const Mentions = () => (
   <Layout>
-    <SEO title="Conditions Générales" />
+    <SEO title="Mentions légales" />
     <div className="mentions-conditions">
       <h1>Informations légales</h1>
       <section>
