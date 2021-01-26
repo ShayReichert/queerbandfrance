@@ -11,8 +11,8 @@ const Mentions = () => (
         <h3>1. Présentation du site.</h3>
         <p>
           En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la
-          confiance dans l'économie numérique, il est précisé aux utilisateurs
-          du site{' '}
+          confiance dans l'économie numérique, il est précisé aux
+          utilisateurices du site{' '}
           <a href="http://https://queerbandfrance.com//">
             https://queerbandfrance.com/
           </a>
@@ -38,8 +38,7 @@ const Mentions = () => (
           Les responsables publication sont des personnes physiques ou des
           personnes morales.
           <br />
-          <strong>Hébergeur</strong> : Hostinger – 61 Lordou Vironos Street 6023
-          Larnaca, Cyprus
+          <strong>Hébergeur</strong> : Netlify
           <br />
           <strong>Crédits</strong> : This is a RIOT
           <br />
@@ -67,18 +66,18 @@ const Mentions = () => (
           implique l’acceptation pleine et entière des conditions générales
           d’utilisation ci-après décrites. Ces conditions d’utilisation sont
           susceptibles d’être modifiées ou complétées à tout moment, les
-          utilisateurs du site{' '}
+          utilisateurices du site{' '}
           <a href="http://https://queerbandfrance.com/">
             https://queerbandfrance.com/
           </a>{' '}
           sont donc invités à les consulter de manière régulière.
         </p>
         <p>
-          Ce site est normalement accessible à tout moment aux utilisateurs. Une
-          interruption pour raison de maintenance technique peut être toutefois
-          décidée par le propriétaire du site, qui s’efforcera alors de
-          communiquer préalablement aux utilisateurs les dates et heures de
-          l’intervention.
+          Ce site est normalement accessible à tout moment aux utilisateurices.
+          Une interruption pour raison de maintenance technique peut être
+          toutefois décidée par le propriétaire du site, qui s’efforcera alors
+          de communiquer préalablement aux utilisateurices les dates et heures
+          de l’intervention.
         </p>
         <p>
           Le site{' '}
@@ -122,7 +121,10 @@ const Mentions = () => (
           ayant été apportées depuis leur mise en ligne.
         </p>
         <h3>4. Limitations contractuelles sur les données techniques.</h3>
-        <p>Le site utilise les technologies PHP, MySQL, Javascript.</p>
+        <p>
+          Le site utilise les technologies Javascript (React + Gatsby) et JSX /
+          CSS.
+        </p>
         <p>
           Le site Internet ne pourra être tenu responsable de dommages matériels
           liés à l’utilisation du site. De plus, l’utilisateur du site s’engage
@@ -168,7 +170,7 @@ const Mentions = () => (
         </p>
         <p>
           Des espaces interactifs (possibilité de poser des questions dans
-          l’espace contact) sont à la disposition des utilisateurs. Le
+          l’espace contact) sont à la disposition des utilisateurices. Le
           propriétaire du site se réserve le droit de supprimer, sans mise en
           demeure préalable, tout contenu déposé dans cet espace qui
           contreviendrait à la législation applicable en France, en particulier
@@ -192,25 +194,25 @@ const Mentions = () => (
             https://queerbandfrance.com/
           </a>{' '}
           , peuvent êtres recueillies : l'URL des liens par l'intermédiaire
-          desquels l'utilisateur a accédé au site
+          desquels l'utilisateurice a accédé au site
           <a href="http://https://queerbandfrance.com/">
             {' '}
             https://queerbandfrance.com/
           </a>{' '}
-          , le fournisseur d'accès de l'utilisateur, l'adresse de protocole
-          Internet (IP) de l'utilisateur.
+          , le fournisseur d'accès de l'utilisateurice, l'adresse de protocole
+          Internet (IP) de l'utilisateurice.
         </p>
         <p>
           En tout état de cause le propriétaire du site ne collecte des
-          informations personnelles relatives à l'utilisateur que pour le besoin
-          de certains services proposés par le site
+          informations personnelles relatives à l'utilisateurice que pour le
+          besoin de certains services proposés par le site
           <a href="http://https://queerbandfrance.com/">
             {' '}
-            https://queerbandfrance.com/{' '}
-          </a>
-          L'utilisateur fournit ces informations en toute connaissance de cause,
-          notamment lorsqu'il procède par lui-même à leur saisie. Il est alors
-          précisé à l'utilisateur du site
+            https://queerbandfrance.com/
+          </a>{' '}
+          . L'utilisateurice fournit ces informations en toute connaissance de
+          cause, notamment lorsqu'il procède par lui-même à leur saisie. Il est
+          alors précisé à l'utilisateurice du site
           <a href="http://https://queerbandfrance.com/">
             {' '}
             https://queerbandfrance.com/
@@ -220,24 +222,25 @@ const Mentions = () => (
         <p>
           Conformément aux dispositions des articles 38 et suivants de la loi
           78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux
-          libertés, tout utilisateur dispose d’un droit d’accès, de
+          libertés, tout utilisateurice dispose d’un droit d’accès, de
           rectification et d’opposition aux données personnelles le concernant,
           en effectuant sa demande écrite et signée, accompagnée d’une copie du
           titre d’identité avec signature du titulaire de la pièce, en précisant
           l’adresse à laquelle la réponse doit être envoyée.
         </p>
         <p>
-          Aucune information personnelle de l'utilisateur du site
+          Aucune information personnelle de l'utilisateurice du site
           <a href="http://https://queerbandfrance.com//">
             {' '}
             https://queerbandfrance.com/
           </a>{' '}
-          n'est publiée à l'insu de l'utilisateur, échangée, transférée, cédée
-          ou vendue sur un support quelconque à des tiers. Seule l'hypothèse du
-          rachat du propriétaire du site et de ses droits permettrait la
-          transmission des dites informations à l'éventuel acquéreur qui serait
-          à son tour tenu de la même obligation de conservation et de
-          modification des données vis à vis de l'utilisateur du site
+          n'est publiée à l'insu de l'utilisateurice, échangée, transférée,
+          cédée ou vendue sur un support quelconque à des tiers. Seule
+          l'hypothèse du rachat du propriétaire du site et de ses droits
+          permettrait la transmission des dites informations à l'éventuel
+          acquéreur qui serait à son tour tenu de la même obligation de
+          conservation et de modification des données vis à vis de
+          l'utilisateurice du site
           <a href="http://https://queerbandfrance.com//">
             {' '}
             https://queerbandfrance.com/
