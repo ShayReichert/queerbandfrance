@@ -19,7 +19,7 @@ const MainTitle = styled.div`
   }
 `
 
-const MainSearch = styled.div`
+const MainSearch = styled.form`
   display: flex;
   align-items: center;
   margin-top: 2rem;
@@ -82,12 +82,21 @@ const Header = ({ shortTitle, removeActiveStyle }) => {
           <Link to="/">{shortTitle}</Link>
           <span>France</span>
         </Title>
-        <IoMenu id="burger" />
+
+        <IoMenu
+          id="burger"
+          tabIndex="0"
+          aria-label="Filtrer les groupes par régions ou par styles"
+        />
       </MainTitle>
 
       <MainSearch>
         <BsSearch className="icon" />
-        <SearchInput onChange={filteredBands} />
+        <SearchInput
+          onChange={filteredBands}
+          type="search"
+          aria-label="Rechercher un groupe, un style ou une région"
+        />
       </MainSearch>
     </header>
   )

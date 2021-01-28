@@ -25,15 +25,26 @@ const MainGrids = ({
   checkedDistricts,
   checkedStyles,
 }) => {
-  // Toggle menu on click on burger (smartphone and tablet screen only)
+  // Toggle menu on click (or "enter" press) on burger
   useEffect(() => {
     const burger = document.querySelector('#burger')
+
     function toggleMenu() {
       document.body.classList.toggle('menu-active')
     }
+
+    function toggleMenuOnEnterPress(e) {
+      if (e.key === 'Enter') {
+        document.body.classList.toggle('menu-active')
+      }
+    }
+
     burger.addEventListener('click', toggleMenu)
+    burger.addEventListener('keypress', toggleMenuOnEnterPress)
+
     return function () {
       burger.removeEventListener('click', toggleMenu)
+      burger.removeEventListener('keypress', toggleMenuOnEnterPress)
     }
   }, [])
 

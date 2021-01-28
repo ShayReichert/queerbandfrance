@@ -18,10 +18,14 @@ const Main = styled.div`
   z-index: 1;
   opacity: 0.7;
   transition: all 300ms;
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     opacity: 1;
   }
-  &:hover button {
+  &:hover button,
+  &:focus button,
+  &:active button {
     transform: translateY(0);
     opacity: 1;
   }
@@ -97,20 +101,24 @@ const Card = ({
   }, [])
 
   return (
-    <Main className={`card ${isQueer ? 'queer' : ''} `}>
+    <Main
+      className={`card ${isQueer ? 'queer' : ''} `}
+      tabIndex="0"
+      aria-label={name}
+    >
       <ImgBand className="card__photo">
         {fluid ? (
           <Image
             fluid={fluid}
             className="card__img"
-            alt="band"
+            alt={name}
             title={name_alt}
           />
         ) : (
           <img
             src={placeholder}
             className="card__img"
-            alt="band"
+            alt={name}
             title={name_alt}
           />
         )}
@@ -118,18 +126,14 @@ const Card = ({
       <InfosBand className="card__infos">
         <h2 className="resize">{name}</h2>
         <p>
-          <span role="img" aria-label="piano">
-            🎹{' '}
-          </span>
+          <span aria-hidden="true">🎹 </span>
           <span className="card__styles">
             {styles.length > 1 ? styles.join(', ') : styles}
             {allData.other_style && ', ' + allData.other_style}
           </span>
         </p>
         <p className="city-district">
-          <span role="img" aria-label="black square">
-            🔳{' '}
-          </span>
+          <span aria-hidden="true">🔳 </span>
           {city}, {district}
         </p>
       </InfosBand>

@@ -12,6 +12,18 @@ export function stylesFilter(checkedStyles) {
     }
   }
 
+  function toggleClassOnEnterPress(e) {
+    const style = this.textContent
+    if (e.key === 'Enter') {
+      this.classList.toggle('active')
+      if (this.classList.contains('active')) {
+        pushStyle(style)
+      } else {
+        removeStyle(style)
+      }
+    }
+  }
+
   function pushStyle(style) {
     checkedStyles.push(style)
     handleDisplayBands(checkedStyles)
@@ -43,14 +55,18 @@ export function stylesFilter(checkedStyles) {
     }
   }
 
+  // eslint-disable-next-line
   styles.map((style) => {
-    return style.addEventListener('click', toggleClass)
+    style.addEventListener('click', toggleClass)
+    style.addEventListener('keypress', toggleClassOnEnterPress)
   })
 
   //// CLEAN USEEFFECT ////
   return function () {
+    // eslint-disable-next-line
     styles.map((style) => {
-      return style.removeEventListener('click', toggleClass)
+      style.removeEventListener('click', toggleClass)
+      style.removeEventListener('keypress', toggleClassOnEnterPress)
     })
   }
 }
@@ -68,6 +84,19 @@ export function districtsFilter(checkedDistricts, allDistricts) {
       pushDistrict(district)
     } else {
       removeDistrict(district)
+    }
+  }
+
+  function toggleClassOnEnterPress(e) {
+    const path = this.firstElementChild
+    const district = this.dataset.name
+    if (e.key === 'Enter') {
+      path.classList.toggle('active')
+      if (path.classList.contains('active')) {
+        pushDistrict(district)
+      } else {
+        removeDistrict(district)
+      }
     }
   }
 
@@ -122,7 +151,9 @@ export function districtsFilter(checkedDistricts, allDistricts) {
   // eslint-disable-next-line
   districts.map((district) => {
     district.addEventListener('click', toggleClass)
+    district.addEventListener('keypress', toggleClassOnEnterPress)
     district.addEventListener('mouseover', displayName)
+    district.addEventListener('focus', displayName)
     district.addEventListener('mouseout', hideName)
   })
 
@@ -131,7 +162,9 @@ export function districtsFilter(checkedDistricts, allDistricts) {
     // eslint-disable-next-line
     districts.map((district) => {
       district.removeEventListener('click', toggleClass)
+      district.removeEventListener('keypress', toggleClassOnEnterPress)
       district.removeEventListener('mouseover', displayName)
+      district.removeEventListener('focus', displayName)
       district.removeEventListener('mouseout', hideName)
     })
   }
