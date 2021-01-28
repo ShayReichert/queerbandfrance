@@ -151,6 +151,9 @@ table {
   --main-bg: #181a22;
   --second-bg: #030303;
 }
+*:focus:not(:focus-visible) {
+  outline: none;
+}
 h1 {
   font-size: 3.4rem;
 }
@@ -172,7 +175,8 @@ h1 {
     color: var(--main-text);
     font-size: 1.7rem;
     cursor: pointer;
-    &:hover {
+    &:hover, 
+    &:focus  {
       color: #fff;
     }
     svg {

@@ -18,7 +18,7 @@ const Main = styled.div`
 
 const GridCards = ({ bands }) => {
   return (
-    <Main className="bloc3">
+    <Main className="bloc3" role="group">
       {bands.map((band) => {
         const {
           name,

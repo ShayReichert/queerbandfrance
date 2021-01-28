@@ -16,7 +16,8 @@ const StyleLi = styled.li`
   @media screen and (min-width: 768px) {
     font-size: 1.6rem;
   }
-  &:hover {
+  &:hover,
+  &:focus-visible {
     @media screen and (min-width: 768px) {
       color: white;
       background: #181a22;
@@ -29,7 +30,9 @@ const StyleLi = styled.li`
 const Style = ({ name }) => {
   return (
     <>
-      <StyleLi className="band-style">{name}</StyleLi>
+      <StyleLi className="band-style" tabIndex="0" aria-label={name}>
+        {name}
+      </StyleLi>
     </>
   )
 }

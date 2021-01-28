@@ -50,7 +50,7 @@ const GridStyles = ({ styles, checkedStyles }) => {
 
   return (
     <Main className="bloc2">
-      <ul>
+      <ul role="group">
         {styles.map((style, key) => {
           return <Style name={style} key={key} />
         })}
