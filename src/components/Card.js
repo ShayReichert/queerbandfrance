@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
 import CardLinks from './CardLinks'
@@ -92,7 +92,7 @@ const Card = ({
   allData,
 }) => {
   const fluid = image && image.localFiles[0].childImageSharp.fluid
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Resize names according to their length, to fit in the card
     const allNames = Array.from(document.querySelectorAll('.resize'))
     const oneCard = document.querySelector('.card')
