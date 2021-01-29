@@ -182,6 +182,10 @@ h1 {
     &:focus  {
       color: #fff;
     }
+    svg {
+      vertical-align: middle;
+      text-align: center;
+    }
   }
 }
 
