@@ -166,9 +166,9 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   button {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     outline: none;
     height: 3.2rem;
     width: 3.3rem;
@@ -183,6 +183,7 @@ h1 {
       color: #fff;
     }
     svg {
+      display: inline-block;
       vertical-align: middle;
       text-align: center;
     }
