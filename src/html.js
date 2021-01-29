@@ -32,15 +32,7 @@ export default function HTML(props) {
             zIndex: 100,
           }}
         >
-          <img
-            src={SpinnerSVG}
-            alt="loading spinner"
-            width="64"
-            height="64"
-            style={{
-              filter: 'drop-shadow(0 0 0.75rem #f8f8f8)',
-            }}
-          />
+          <img src={SpinnerSVG} alt="loading spinner" width="64" height="64" />
         </div>
         <div
           key={`body`}
