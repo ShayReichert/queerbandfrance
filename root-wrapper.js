@@ -174,6 +174,7 @@ h1 {
     background: #383838;
     color: var(--main-text);
     font-size: 1.7rem;
+    text-align: center;
     cursor: pointer;
     &:hover, 
     &:focus  {
