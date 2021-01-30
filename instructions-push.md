@@ -9,3 +9,5 @@
 - VSC : retourner sur master, git pull pour recupéré le master distant
 - puis git branch -d develop pour supprimer la branch.
 - Recréer une branche develop pour être sur dene jamais travailler directement sur master
+
+- Mémo : créer une nouvelle branche et switcher dessus : git switch -c non-existing-branch
