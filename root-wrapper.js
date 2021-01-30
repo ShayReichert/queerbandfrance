@@ -181,7 +181,6 @@ h1 {
       color: #fff;
     }
     svg {
-      /* display: inline-block; */
       vertical-align: middle; 
       text-align: center; 
       margin: auto;

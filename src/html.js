@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SpinnerSVG from './images/spinner1.svg'
+import SpinnerSVG from '../static/images/spinner1.svg'
 
 export default function HTML(props) {
   return (

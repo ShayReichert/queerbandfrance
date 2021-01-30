@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Image from 'gatsby-image'
 import CardLinks from './CardLinks'
 import { resizeNames } from '../hooks/useResize'
-import placeholder from '../images/placeholder-img.jpg'
+import placeholder from '../../static/images/placeholder-img.jpg'
 
 const Main = styled.div`
   /* background: rgba(241, 241, 241, 0.05); */

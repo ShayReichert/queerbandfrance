@@ -27,7 +27,7 @@ const CardLinks = ({ links }) => {
             aria-label={`Bandcamp de ${name}`}
           >
             <button style={{ '--i': '1' }} aria-label={`Bandcamp de ${name}`}>
-              <SiBandcamp aria-label="Bandcamp" />
+              <SiBandcamp aria-label="Bandcamp" role="presentation" />
             </button>
           </a>
         </>
@@ -41,7 +41,7 @@ const CardLinks = ({ links }) => {
             aria-label={`Facebook de ${name}`}
           >
             <button style={{ '--i': '2' }} aria-label={`Facebook de ${name}`}>
-              <FaFacebookF aria-label="Facebook" />
+              <FaFacebookF aria-label="Facebook" role="presentation" />
             </button>
           </a>
         </>
@@ -55,7 +55,7 @@ const CardLinks = ({ links }) => {
             aria-label={`Instagram de ${name}`}
           >
             <button style={{ '--i': '3' }} aria-label={`Instagram de ${name}`}>
-              <SiInstagram aria-label="Instagram" />
+              <SiInstagram aria-label="Instagram" role="presentation" />
             </button>
           </a>
         </>
@@ -69,7 +69,7 @@ const CardLinks = ({ links }) => {
             aria-label={`Youtube de ${name}`}
           >
             <button style={{ '--i': '4' }} aria-label={`Youtube de ${name}`}>
-              <SiYoutube aria-label="Youtube" />
+              <SiYoutube aria-label="Youtube" role="presentation" />
             </button>
           </a>
         </>
@@ -83,7 +83,7 @@ const CardLinks = ({ links }) => {
             aria-label={`Site de ${name}`}
           >
             <button style={{ '--i': '5' }} aria-label={`Site de ${name}`}>
-              <FiLink aria-label="Site" />
+              <FiLink aria-label="Site" role="presentation" />
             </button>
           </a>
         </>
