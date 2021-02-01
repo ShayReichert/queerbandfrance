@@ -39,9 +39,7 @@ const Footer = ({ title }) => {
       <FooterNav className="footer-parts">
         <ul>
           <li>
-            <a href="mailto:thisisariot.asso@gmail.com">
-              Soumettre une suggestion de groupe
-            </a>
+            <Link to="/proposer-groupe">Proposer un groupe</Link>
           </li>
           <li>
             <Link to="/conditions-generales">Conditions générales</Link>
