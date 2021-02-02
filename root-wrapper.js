@@ -155,7 +155,10 @@ table {
   outline: none;
 }
 h1 {
-  font-size: 3.4rem;
+  font-size: 3rem;
+  @media screen and (min-width: 768px) {
+    font-size: 3.4rem;
+  }
 }
 .icon {
   font-size: 1.8rem;
@@ -271,7 +274,6 @@ main .mentions-conditions {
   font-size: 1.3rem;
   overflow-x: scroll;
   h1 {
-    font-size: 3rem;
     text-align: center;
   }
   h2 {

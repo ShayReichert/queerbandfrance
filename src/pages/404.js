@@ -15,7 +15,6 @@ const Main404 = styled.div`
     font-family: 'Archivo', Arial, Helvetica, sans-serif;
   }
   h1 {
-    font-size: 3rem;
     margin-bottom: 1rem;
   }
   p {
