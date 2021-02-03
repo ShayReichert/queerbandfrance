@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
@@ -10,43 +11,43 @@ const Conditions = () => (
       <section>
         <h2>
           QueerBandFrance a pour but de visibiliser les projets de personnes
-          queers et/ou féministes en France.
+          queers et/ou féministes* en France.
         </h2>
         <p>
-          Si tu veux proposer ton projet, envoie-nous les infos suivantes via le
-          lien{' '}
-          <a href="mailto:thisisariot.asso@gmail.com">
-            Soumettre une suggestion de groupe
-          </a>{' '}
-          :
+          Si tu veux proposer ton projet, remplis{' '}
+          <Link to="/proposer-groupe">ce formulaire</Link>. Il faudra que tu
+          renseignes :
         </p>
-        <ul>
-          <li>le nom de ton projet ;</li>
+        <ol>
+          <li>Le nom de ton projet ;</li>
           <li>
-            ta région et ta ville (si c'est une petite ville, la grosse ville la
+            Un lien vers une image du groupe (ça peut être une photo de profil
+            bandcamp, facebook...) ;
+          </li>
+          <li>
+            Préciser si c'est un groupe queer ;<br />
+            <em>
+              si tu coches "non", le groupe sera considéré comme féministe mais
+              pas queer. Les groupes queers et féministes apparaissent en rose
+              sur le site, les groupes féministes en bleu.
+            </em>
+          </li>
+          <li>Le / les styles musical du projet ;</li>
+          <li>
+            Ta région et ta ville (si c'est une petite ville, la grosse ville la
             plus près de chez toi) ;
           </li>
           <li>
-            le style musical du projet (2 maximum, dont 1 assez large pour
-            faciliter le référencement) ;
+            Si tu le souhaites, des liens vers ta musique et tes réseaux sociaux
+            (bandcamp, facebook, instagram, youtube...) ;
           </li>
           <li>
-            des liens vers ta musique et tes réseaux sociaux (bandcamp,
-            facebook, instagram, youtube...) ;
+            Ton mail pour qu'on puisse te contacter s'il nous manque des infos.
           </li>
-          <li>
-            Ta catégorie : queer ou féministe ? <br />
-            <em>
-              Si tu es queer ET féministe, choisis la catégorie queer qui
-              regroupe par défaut les deux catégories. La catégorie féministe
-              s'applique aux projets menés par des personnes cis hétéras
-              féministes.
-            </em>
-          </li>
-        </ul>
+        </ol>
         <p>
           <em>
-            L'équipe de This is a riot ne prétend pas déterminer quels projets
+            * L'équipe de This is a riot ne prétend pas déterminer quels projets
             sont « légitimes » ou non ; néanmoins, le but est de laisser la
             place aux personnes peu visibilisées sur la scène musicale
             française. Nous ne référencerons pas les groupes composés en

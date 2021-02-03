@@ -290,6 +290,9 @@ main .mentions-conditions {
     line-height: 25px;
     list-style: circle;
   }
+  em {
+    font-size : 1.35rem;
+  }
   
   @media screen and (min-width: 768px) {
     font-size: 1.7rem;
