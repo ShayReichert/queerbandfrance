@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -18,12 +19,21 @@ const FormBg = styled.div`
   width: 80vw;
   overflow: scroll;
   h1 {
-    margin-top: 2rem;
+    margin: 2rem 0 1rem 0;
     text-align: center;
     font-family: 'Archivo', Arial, Helvetica, sans-serif;
     @media screen and (min-width: 768px) {
       font-size: 3.4rem;
     }
+  }
+  .form-subtext {
+    font-size: 1.4rem;
+    text-align: center;
+    max-width: 80%;
+    margin: auto;
+  }
+  .form-subtext a:hover {
+    color: #fff;
   }
   form {
     display: grid;
@@ -39,6 +49,16 @@ const FormBg = styled.div`
     color: #fff;
     @media screen and (min-width: 768px) {
       font-size: 1.8rem;
+    }
+  }
+  .form-queer {
+    margin-bottom: 1rem;
+  }
+  .form-queer-label {
+    display: inline-block;
+    margin-right: 0.5rem;
+    @media screen and (min-width: 768px) {
+      margin-right: 3rem;
     }
   }
   fieldset {
@@ -61,13 +81,13 @@ const FormBg = styled.div`
     font-style: italic;
     color: grey;
   }
-  .styles {
+  .form-styles {
     width: 45%;
   }
-  .styles:first-of-type {
+  .form-styles:first-of-type {
     margin-right: 1rem;
   }
-  .btn-radio {
+  .form-btn-radio {
     display: inline-block;
     font-size: 1rem;
     color: #fff;
@@ -75,7 +95,7 @@ const FormBg = styled.div`
       font-size: 1.5rem;
     }
   }
-  .btn-radio:first-of-type {
+  .form-btn-radio:first-of-type {
     margin-top: 0.3rem;
   }
   .form-radio {
@@ -99,10 +119,33 @@ const FormBg = styled.div`
   .form-button:focus {
     opacity: 0.8;
   }
-  .champs-requis {
+  .form-small-text {
     font-style: italic;
     font-size: 1.1rem;
     margin-top: 1rem;
+  }
+  .form-label-mail {
+    font-size: 1.2rem;
+    color: #fff;
+    @media screen and (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+  .form-input-mail {
+    margin: 0.1rem 1rem 0 0.3rem;
+    padding: 0 0.5rem;
+    border: none;
+    border-radius: 3px;
+    height: 2rem;
+    background: var(--main-bg);
+    color: #fff;
+  }
+  .form-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
   }
 `
 
@@ -129,6 +172,7 @@ class AddBandForm extends Component {
       facebook: '',
       instagram: '',
       site: '',
+      email: '',
     }
   }
 
@@ -167,6 +211,7 @@ class AddBandForm extends Component {
       facebook: '',
       instagram: '',
       site: '',
+      email: '',
     })
   }
 
@@ -178,6 +223,11 @@ class AddBandForm extends Component {
       <Form className="form">
         <FormBg className="form__bg">
           <h1>Proposer un groupe !</h1>
+          <p className="form-subtext">
+            Merci de checker les{' '}
+            <Link to="/conditions-generales">conditions générales</Link> avant
+            d'envoyer ta proposition 😺
+          </p>
           <form
             name="contact"
             method="POST"
@@ -196,6 +246,7 @@ class AddBandForm extends Component {
 
               {/* Nom du groupe */}
               <fieldset>
+                <legend hidden>Informations de base</legend>
                 <p>
                   <label>
                     <span className="form-label">Nom du groupe * </span>
@@ -216,16 +267,18 @@ class AddBandForm extends Component {
                     <input
                       type="url"
                       name="image"
-                      placeholder="www.mon-image.com"
+                      placeholder="https://mon-image.com"
                       className="form-input"
                       value={this.state.image}
                       onChange={this.handleInputChange}
                       required
                     />
                   </label>
-                  <span className="form-label">Queer ? *</span>
+                </p>
+                <p className="form-queer">
+                  <span className="form-label form-queer-label">Queer ? *</span>
                   <label>
-                    <span className="btn-radio">Oui </span>
+                    <span className="form-btn-radio">Oui </span>
                     <input
                       type="radio"
                       name="queer"
@@ -237,7 +290,7 @@ class AddBandForm extends Component {
                     />
                   </label>
                   <label>
-                    <span className="btn-radio">Non </span>
+                    <span className="form-btn-radio">Non </span>
                     <input
                       type="radio"
                       name="queer"
@@ -252,12 +305,14 @@ class AddBandForm extends Component {
 
               {/* Styles du groupe */}
               <fieldset>
+                <legend hidden>Styles du groupe</legend>
                 <p>
                   <label>
                     <span className="form-label">Style(s) *</span>
                     <select
                       name="first_style"
-                      className="form-input styles"
+                      className="form-input form-styles"
+                      aria-label="style musical principal"
                       onChange={this.handleInputChange}
                       onBlur={this.handleInputChange}
                       defaultValue={this.state.first_style}
@@ -276,7 +331,8 @@ class AddBandForm extends Component {
                     </select>
                     <select
                       name="second_style"
-                      className="form-input styles"
+                      className="form-input form-styles"
+                      aria-label="style musical secondaire"
                       onChange={this.handleInputChange}
                       onBlur={this.handleInputChange}
                       defaultValue={this.state.second_style}
@@ -311,12 +367,14 @@ class AddBandForm extends Component {
 
               {/* Localisation du groupe */}
               <fieldset>
+                <legend hidden>Localisation du groupe</legend>
                 <p>
                   <label>
                     <span className="form-label">Région * </span>
                     <select
                       name="district"
                       className="form-input"
+                      text="région"
                       onChange={this.handleInputChange}
                       onBlur={this.handleInputChange}
                       defaultValue={this.state.district}
@@ -338,6 +396,7 @@ class AddBandForm extends Component {
                     <select
                       name="city"
                       className="form-input"
+                      text="ville"
                       onChange={this.handleInputChange}
                       onBlur={this.handleInputChange}
                       defaultValue={this.state.city}
@@ -360,13 +419,14 @@ class AddBandForm extends Component {
             <div className="col-2">
               {/* Liens du groupe */}
               <fieldset>
+                <legend hidden>Liens du groupe</legend>
                 <p>
                   <label>
-                    <span className="form-label">Bandcamp (url) </span>
+                    <span className="form-label">Bandcamp </span>
                     <input
                       type="url"
                       name="bandcamp"
-                      placeholder="www.bandcamp/mongroupe.com"
+                      placeholder="https://bandcamp/mongroupe.com"
                       className="form-input"
                       value={this.state.bandcamp}
                       onChange={this.handleInputChange}
@@ -375,11 +435,11 @@ class AddBandForm extends Component {
                 </p>
                 <p>
                   <label>
-                    <span className="form-label">Youtube (url) </span>
+                    <span className="form-label">Youtube </span>
                     <input
                       type="url"
                       name="youtube"
-                      placeholder="www.youtube/mongroupe.com"
+                      placeholder="https://youtube/mongroupe.com"
                       className="form-input"
                       value={this.state.youtube}
                       onChange={this.handleInputChange}
@@ -388,11 +448,11 @@ class AddBandForm extends Component {
                 </p>
                 <p>
                   <label>
-                    <span className="form-label">Facebook (url) </span>
+                    <span className="form-label">Facebook </span>
                     <input
                       type="url"
                       name="facebook"
-                      placeholder="www.facebook/mongroupe.com"
+                      placeholder="https://facebook/mongroupe.com"
                       className="form-input"
                       value={this.state.facebook}
                       onChange={this.handleInputChange}
@@ -401,11 +461,11 @@ class AddBandForm extends Component {
                 </p>
                 <p>
                   <label>
-                    <span className="form-label">Instagram (url) </span>
+                    <span className="form-label">Instagram </span>
                     <input
                       type="url"
                       name="instagram"
-                      placeholder="www.instagram/mongroupe.com"
+                      placeholder="https://instagram/mongroupe.com"
                       className="form-input"
                       value={this.state.instagram}
                       onChange={this.handleInputChange}
@@ -414,11 +474,11 @@ class AddBandForm extends Component {
                 </p>
                 <p>
                   <label>
-                    <span className="form-label">Site (url) </span>
+                    <span className="form-label">Site </span>
                     <input
                       type="url"
                       name="site"
-                      placeholder="www.le-site-du-groupe.com"
+                      placeholder="https://le-site-du-groupe.com"
                       className="form-input"
                       value={this.state.site}
                       onChange={this.handleInputChange}
@@ -427,12 +487,27 @@ class AddBandForm extends Component {
                 </p>
               </fieldset>
 
-              <p>
+              <p className="form-flex">
+                <span>
+                  <label>
+                    <span className="form-label-mail">Ton mail * </span>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="toto@caramail.com"
+                      className="form-input-mail"
+                      value={this.state.mail}
+                      onChange={this.handleInputChange}
+                      required
+                    />
+                  </label>
+                </span>
                 <button className="form-button" type="submit">
                   Envoyer !
                 </button>
               </p>
-              <p className="champs-requis">* Champs requis</p>
+              <p className="form-small-text">* Champs requis</p>
+              <p className="form-small-text">⚠ Format des urls : https://...</p>
             </div>
           </form>
         </FormBg>
