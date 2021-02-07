@@ -155,7 +155,7 @@ const encode = (data) => {
     .join('&')
 }
 
-class AddBandForm extends Component {
+class FormAddBand extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -520,4 +520,4 @@ AddBandForm.propTypes = {
   data: PropTypes.object,
 }
 
-export default AddBandForm
+export default FormAddBand
