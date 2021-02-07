@@ -516,7 +516,7 @@ class FormAddBand extends Component {
   }
 }
 
-AddBandForm.propTypes = {
+FormAddBand.propTypes = {
   data: PropTypes.object,
 }
 
