@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import AddBandForm from '../components/AddBand'
+import FormAddBand from '../components/FormAddBand'
 
 const Proposer = ({ data }) => {
   const {
@@ -20,7 +20,7 @@ const Proposer = ({ data }) => {
   return (
     <Layout>
       <SEO title="Proposer un groupe" />
-      <AddBandForm styles={styles} districts={districts} cities={cities} />
+      <FormAddBand styles={styles} districts={districts} cities={cities} />
     </Layout>
   )
 }
