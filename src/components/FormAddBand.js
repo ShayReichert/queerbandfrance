@@ -429,6 +429,7 @@ class FormAddBand extends Component {
                     <span className="form-label">Autres </span>
                     <textarea
                       name="other"
+                      maxlength="150"
                       placeholder="Précise ici par exemple ta région et/ou ta ville si elle ne figure pas dans la liste proposée."
                       className="form-input textarea"
                       value={this.state.other}
