@@ -81,6 +81,11 @@ const FormBg = styled.div`
     font-style: italic;
     color: grey;
   }
+  .form-input.textarea {
+    height: 3rem;
+    padding: 1rem 0.5rem;
+    font-family: 'Roboto', Helvetica, sans-serif;
+  }
   .form-styles {
     width: 45%;
   }
@@ -123,6 +128,9 @@ const FormBg = styled.div`
     font-style: italic;
     font-size: 1.1rem;
     margin-top: 1rem;
+  }
+  .mobile-mail {
+    margin-bottom: 1rem;
   }
   .form-label-mail {
     font-size: 1.2rem;
@@ -167,6 +175,7 @@ class FormAddBand extends Component {
       other_style: '',
       district: '',
       city: '',
+      other: '',
       bandcamp: '',
       youtube: '',
       facebook: '',
@@ -206,6 +215,7 @@ class FormAddBand extends Component {
       other_style: '',
       district: '',
       city: '',
+      other: '',
       bandcamp: '',
       youtube: '',
       facebook: '',
@@ -413,6 +423,20 @@ class FormAddBand extends Component {
                     </select>
                   </label>
                 </p>
+
+                <p>
+                  <label>
+                    <span className="form-label">Autres </span>
+                    <textarea
+                      name="other"
+                      maxlength="150"
+                      placeholder="Précise ici par exemple ta région et/ou ta ville si elle ne figure pas dans la liste proposée."
+                      className="form-input textarea"
+                      value={this.state.other}
+                      onChange={this.handleInputChange}
+                    ></textarea>
+                  </label>
+                </p>
               </fieldset>
             </div>
 
@@ -488,7 +512,7 @@ class FormAddBand extends Component {
               </fieldset>
 
               <p className="form-flex">
-                <span>
+                <span className="mobile-mail">
                   <label>
                     <span className="form-label-mail">Ton mail * </span>
                     <input
