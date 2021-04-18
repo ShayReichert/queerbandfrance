@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
 import CardLinks from './CardLinks'
