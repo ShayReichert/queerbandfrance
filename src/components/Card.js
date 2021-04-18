@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
 import CardLinks from './CardLinks'
@@ -75,6 +75,10 @@ const InfosBand = styled.div`
   .smaller5 {
     font-size: 2rem;
   }
+  .styles {
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
   .city-district {
     line-height: 1.2;
     margin-top: 0.3rem;
@@ -92,13 +96,14 @@ const Card = ({
   allData,
 }) => {
   const fluid = image && image.localFiles[0].childImageSharp.fluid
-  useLayoutEffect(() => {
+
+  setTimeout(() => {
     // Resize names according to their length, to fit in the card
     const allNames = Array.from(document.querySelectorAll('.resize'))
     const oneCard = document.querySelector('.card')
     const cardMaxWidth = parseInt(getComputedStyle(oneCard).width) - 12
     resizeNames(allNames, cardMaxWidth)
-  }, [])
+  }, 200)
 
   return (
     <Main
@@ -125,7 +130,7 @@ const Card = ({
       </ImgBand>
       <InfosBand className="card__infos">
         <h2 className="resize">{name}</h2>
-        <p>
+        <p className="styles">
           <span aria-hidden="true">🎹 </span>
           <span className="card__styles">
             {styles.length > 1 ? styles.join(', ') : styles}
