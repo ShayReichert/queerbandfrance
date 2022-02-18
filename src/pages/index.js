@@ -18,22 +18,31 @@ const IndexPage = ({ data }) => {
 
   const removeActiveStyle = () => {
     const styles = Array.from(document.querySelectorAll('.band-style'))
+
+    styles.forEach((style) => {
+      style.classList.remove('active')
+    })
+    checkedStyles.splice(0, checkedStyles.length)
+  }
+
+  const removeActiveDistrict = () => {
     const districts = Array.from(
       document.querySelectorAll('[data-name] > path')
     )
 
-    styles.map((style) => {
-      return style.classList.remove('active')
-    })
-    checkedStyles.splice(0, checkedStyles.length)
-    districts.map((district) => {
-      return district.classList.remove('active')
+    districts.forEach((district) => {
+      district.classList.remove('active')
     })
     checkedDistricts.splice(0, checkedDistricts.length)
   }
 
+  const removeAllActive = () => {
+    removeActiveStyle()
+    removeActiveDistrict()
+  }
+
   return (
-    <Layout removeActiveStyle={removeActiveStyle}>
+    <Layout removeAllActive={removeAllActive}>
       <SEO title="QueerBand - France" />
       <MainGrids
         bands={bands}
@@ -41,6 +50,8 @@ const IndexPage = ({ data }) => {
         allDistricts={allDistricts}
         checkedDistricts={checkedDistricts}
         checkedStyles={checkedStyles}
+        removeActiveStyle={removeActiveStyle}
+        removeActiveDistrict={removeActiveDistrict}
       />
     </Layout>
   )

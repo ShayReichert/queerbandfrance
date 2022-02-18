@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Header from './Header'
 import Footer from './Footer.js'
 
-const Layout = ({ children, removeActiveStyle }) => {
+const Layout = ({ children, removeAllActive }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -20,7 +20,7 @@ const Layout = ({ children, removeActiveStyle }) => {
     <>
       <Header
         shortTitle={data.site.siteMetadata?.shortTitle || `QueerBand`}
-        removeActiveStyle={removeActiveStyle}
+        removeAllActive={removeAllActive}
       />
       <main>{children}</main>
       <Footer title={data.site.siteMetadata?.title || `QueerBand - France`} />
