@@ -8,7 +8,7 @@ import placeholder from '../../static/images/placeholder-img.jpg'
 const Main = styled.div`
   /* background: rgba(241, 241, 241, 0.05); */
   background: #00b1ff17;
-  height: 32rem;
+  height: 35rem;
   width: 23rem;
   margin: 0.5rem;
   border-radius: 0.8rem;
@@ -18,16 +18,22 @@ const Main = styled.div`
   z-index: 1;
   opacity: 0.7;
   transition: all 300ms;
+
   &:hover,
   &:focus,
   &:active {
     opacity: 1;
   }
-  &:hover button,
-  &:focus button,
-  &:active button {
-    transform: translateY(0);
-    opacity: 1;
+
+  @media screen and (min-width: 768px) {
+    height: 32rem;
+
+    &:hover button,
+    &:focus button,
+    &:active button {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 `
 const ImgBand = styled.div`

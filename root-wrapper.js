@@ -165,28 +165,45 @@ h1 {
 }
 .social-btn-box {
   margin: auto;
-  width: 19rem;
+  /* width: 19rem; */
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+
   button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     outline: none;
-    height: 3.2rem;
-    width: 3.3rem;
+    /* height: auto; */
+    /* width: 2rem; */
     border-radius: 30px;
     border: none;
     background: #383838;
     color: var(--main-text);
     font-size: 1.7rem;
     text-align: center;
-    cursor: pointer;
+    pointer-events: none;
+
+    @media screen and (min-width: 768px) {
+      height: 3.2rem;
+      width: 3.3rem;
+    }
+
     &:hover, 
     &:focus  {
       color: #fff;
+      
     }
+
     svg {
-      vertical-align: middle; 
-      text-align: center; 
       margin: auto;
+      padding: 0.6rem;
+
+      @media screen and (min-width: 768px) {
+        padding: 0;
+      }
     }
   }
 }

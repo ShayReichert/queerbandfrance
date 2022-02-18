@@ -6,10 +6,12 @@ import { FiLink } from 'react-icons/fi'
 
 const BtnBand = styled.div`
   button {
-    transform: translateY(80px);
-    opacity: 0;
-    transition: 0.3s;
-    transition-delay: calc(0.1s * var(--i));
+    @media screen and (min-width: 768px) {
+      transform: translateY(80px);
+      opacity: 0;
+      transition: 0.3s;
+      transition-delay: calc(0.1s * var(--i));
+    }
   }
 `
 
