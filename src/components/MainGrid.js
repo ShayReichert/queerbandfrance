@@ -24,6 +24,8 @@ const MainGrids = ({
   allDistricts,
   checkedDistricts,
   checkedStyles,
+  removeActiveStyle,
+  removeActiveDistrict,
 }) => {
   // Toggle menu on click (or "enter" press) on burger
   useEffect(() => {
@@ -53,8 +55,13 @@ const MainGrids = ({
       <GridMap
         allDistricts={allDistricts}
         checkedDistricts={checkedDistricts}
+        removeActiveStyle={removeActiveStyle}
       />
-      <GridStyles styles={styles} checkedStyles={checkedStyles} />
+      <GridStyles
+        styles={styles}
+        checkedStyles={checkedStyles}
+        removeActiveDistrict={removeActiveDistrict}
+      />
       <GridCards bands={bands} />
       <Cookie />
     </MainGrid>

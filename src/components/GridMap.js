@@ -26,11 +26,11 @@ const Main = styled.div`
     opacity: 0.9;
   }
 `
-const GridMap = ({ allDistricts, checkedDistricts }) => {
+const GridMap = ({ allDistricts, checkedDistricts, removeActiveStyle }) => {
   // // Filter bands when a districts is clicked and active
   useEffect(() => {
-    districtsFilter(checkedDistricts, allDistricts)
-  }, [checkedDistricts, allDistricts])
+    districtsFilter(checkedDistricts, allDistricts, removeActiveStyle)
+  }, [checkedDistricts, allDistricts, removeActiveStyle])
 
   return (
     <Main className="bloc1">

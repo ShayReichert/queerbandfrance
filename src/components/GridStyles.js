@@ -42,11 +42,11 @@ const Main = styled.div`
   }
 `
 
-const GridStyles = ({ styles, checkedStyles }) => {
+const GridStyles = ({ styles, checkedStyles, removeActiveDistrict }) => {
   // Filter bands when a style is clicked and active
   useEffect(() => {
-    stylesFilter(checkedStyles)
-  }, [checkedStyles])
+    stylesFilter(checkedStyles, removeActiveDistrict)
+  }, [checkedStyles, removeActiveDistrict])
 
   return (
     <Main className="bloc2">

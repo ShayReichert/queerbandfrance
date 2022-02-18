@@ -1,6 +1,11 @@
-export function stylesFilter(checkedStyles) {
+export function stylesFilter(checkedStyles, removeActiveDistrict) {
   const styles = Array.from(document.querySelectorAll('.band-style'))
   const bandsCard = Array.from(document.querySelectorAll('.card'))
+
+  function handleClick() {
+    removeActiveDistrict()
+    toggleClass.bind(this)()
+  }
 
   function toggleClass() {
     const style = this.textContent
@@ -10,6 +15,11 @@ export function stylesFilter(checkedStyles) {
     } else {
       removeStyle(style)
     }
+  }
+
+  function handleKeyPress(e) {
+    removeActiveDistrict()
+    toggleClassOnEnterPress.bind(this)(e)
   }
 
   function toggleClassOnEnterPress(e) {
@@ -57,24 +67,33 @@ export function stylesFilter(checkedStyles) {
 
   // eslint-disable-next-line
   styles.map((style) => {
-    style.addEventListener('click', toggleClass)
-    style.addEventListener('keypress', toggleClassOnEnterPress)
+    style.addEventListener('click', handleClick)
+    style.addEventListener('keypress', handleKeyPress)
   })
 
   //// CLEAN USEEFFECT ////
   return function () {
     // eslint-disable-next-line
     styles.map((style) => {
-      style.removeEventListener('click', toggleClass)
-      style.removeEventListener('keypress', toggleClassOnEnterPress)
+      style.removeEventListener('click', handleClick)
+      style.removeEventListener('keypress', handleKeyPress)
     })
   }
 }
 
-export function districtsFilter(checkedDistricts, allDistricts) {
+export function districtsFilter(
+  checkedDistricts,
+  allDistricts,
+  removeActiveStyle
+) {
   const bandsCard = Array.from(document.querySelectorAll('.card'))
   const districts = Array.from(document.querySelectorAll('[data-name]'))
   const displayNameBelow = document.querySelector('.gridmap')
+
+  function handleClick() {
+    removeActiveStyle()
+    toggleClass.bind(this)()
+  }
 
   function toggleClass() {
     const path = this.firstElementChild
@@ -85,6 +104,11 @@ export function districtsFilter(checkedDistricts, allDistricts) {
     } else {
       removeDistrict(district)
     }
+  }
+
+  function handleKeyPress(e) {
+    removeActiveStyle()
+    toggleClassOnEnterPress.bind(this)(e)
   }
 
   function toggleClassOnEnterPress(e) {
@@ -150,8 +174,8 @@ export function districtsFilter(checkedDistricts, allDistricts) {
 
   // eslint-disable-next-line
   districts.map((district) => {
-    district.addEventListener('click', toggleClass)
-    district.addEventListener('keypress', toggleClassOnEnterPress)
+    district.addEventListener('click', handleClick)
+    district.addEventListener('keypress', handleKeyPress)
     district.addEventListener('mouseover', displayName)
     district.addEventListener('focus', displayName)
     district.addEventListener('mouseout', hideName)
@@ -161,8 +185,8 @@ export function districtsFilter(checkedDistricts, allDistricts) {
   return function () {
     // eslint-disable-next-line
     districts.map((district) => {
-      district.removeEventListener('click', toggleClass)
-      district.removeEventListener('keypress', toggleClassOnEnterPress)
+      district.removeEventListener('click', handleClick)
+      district.removeEventListener('keypress', handleKeyPress)
       district.removeEventListener('mouseover', displayName)
       district.removeEventListener('focus', displayName)
       district.removeEventListener('mouseout', hideName)

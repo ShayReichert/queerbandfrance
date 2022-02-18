@@ -56,13 +56,13 @@ const Title = styled.h1`
   }
 `
 
-const Header = ({ shortTitle, removeActiveStyle }) => {
+const Header = ({ shortTitle, removeAllActive }) => {
   const filteredBands = (e) => {
     e.preventDefault()
     const bands = Array.from(document.querySelectorAll('.card'))
     const search = e.target.value.toLowerCase()
 
-    removeActiveStyle()
+    removeAllActive()
 
     bands.map((band) => {
       let contentValue = band.textContent || band.innerText
