@@ -12,7 +12,7 @@ const Cookie = () => {
       buttonText="J'ai compris !"
     >
       <span role="img" aria-label="cookie">
-        🍪{' '}
+        🍪&nbsp;&nbsp;
       </span>
       Ce site Web utilise des cookies pour améliorer l'expérience
       utilisateur.&nbsp;&nbsp;

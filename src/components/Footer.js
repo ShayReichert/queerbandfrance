@@ -31,6 +31,7 @@ const FooterAsso = styled.div`
   }
 `
 const BtnFooter = styled.div`
+  width: 20rem;
   margin-top: 2rem;
 `
 const Footer = ({ title }) => {
