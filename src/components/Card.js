@@ -40,6 +40,11 @@ const ImgBand = styled.div`
   height: 45%;
   width: 100%;
   overflow: hidden;
+
+  .card__img {
+    height: 100%;
+  }
+  
   img {
     border-radius: 0.8rem 0.8rem 0 0;
     height: 100%;
