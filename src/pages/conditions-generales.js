@@ -10,8 +10,8 @@ const Conditions = () => (
       <h1>Conditions Générales</h1>
       <section>
         <h2>
-          QueerBandFrance a pour but de visibiliser les projets de personnes
-          queers et/ou féministes* en France.
+          QueerBandFrance a pour but de visibiliser des groupes de musique
+          queers et/ou féministes* francophone.
         </h2>
         <p>
           Si tu veux proposer ton projet, remplis{' '}
