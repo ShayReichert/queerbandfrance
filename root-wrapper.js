@@ -285,11 +285,16 @@ main #map_france .active {
 }
 
 main .mentions-conditions {
-  height: 80vh; 
-  padding: 1rem;
+  padding: 5rem 1rem;
   font-family: 'Archivo', Arial, Helvetica, sans-serif;
   font-size: 1.3rem;
-  overflow-x: scroll;
+
+    @media screen and (min-width: 768px) {
+      padding: 1rem;
+      height: 80vh; 
+      overflow-x: scroll;
+  }
+
   h1 {
     text-align: center;
   }

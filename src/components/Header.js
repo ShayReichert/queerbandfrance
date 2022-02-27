@@ -19,13 +19,43 @@ const MainTitle = styled.div`
   }
 `
 
+const RightHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+`
+
+const AddBandLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  background: rgba(235, 114, 255, 0.25);
+  text-decoration: none;
+  transition: all 300ms;
+  margin-top: 1rem;
+
+  &:hover {
+    background: rgba(235, 114, 255, 0.31);
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
+`
+
 const MainSearch = styled.form`
   display: flex;
   align-items: center;
   margin-top: 2rem;
 
   @media screen and (min-width: 768px) {
-    margin-right: 12rem;
+    margin-right: 5rem;
     margin-top: 0;
   }
 `
@@ -90,14 +120,18 @@ const Header = ({ shortTitle, removeAllActive }) => {
         />
       </MainTitle>
 
-      <MainSearch>
-        <BsSearch className="icon" />
-        <SearchInput
-          onChange={filteredBands}
-          type="search"
-          aria-label="Rechercher un groupe, un style ou une région"
-        />
-      </MainSearch>
+      <RightHeader>
+        <MainSearch>
+          <BsSearch className="icon" />
+          <SearchInput
+            onChange={filteredBands}
+            type="search"
+            aria-label="Rechercher un groupe, un style ou une région"
+          />
+        </MainSearch>
+
+        <AddBandLink to="/proposer-groupe">Proposer un groupe</AddBandLink>
+      </RightHeader>
     </header>
   )
 }
