@@ -15,9 +15,14 @@ const FormBg = styled.div`
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-radius: 6px;
-  height: 80vh;
-  width: 80vw;
-  overflow: scroll;
+  width: 90vw;
+
+  @media screen and (min-width: 768px) {
+    height: 80vh;
+    width: 80vw;
+    overflow: scroll;
+  }
+
   h1 {
     margin: 2rem 0 1rem 0;
     text-align: center;
@@ -38,9 +43,10 @@ const FormBg = styled.div`
   form {
     display: grid;
     gap: 8rem;
-    margin: 4rem 5rem;
+    margin: 4rem 2rem;
     @media screen and (min-width: 768px) {
       grid-template-columns: 1fr 1fr;
+      margin: 4rem 5rem;
     }
   }
   .form-label {
