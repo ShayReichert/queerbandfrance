@@ -60,16 +60,14 @@ const Footer = ({ title }) => {
         </p>
         <p>
           Fait par{' '}
-          <span role="img" aria-hidden="true">
-            <a
-              href="https://shayreichert.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label="Site de Shay"
-            >
-              {'{ Shay }'}
-            </a>
-          </span>{' '}
+          <a
+            href="https://shayreichert.com/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Site de Shay"
+          >
+            {'{ Shay }'}
+          </a>{' '}
           avec 💙
         </p>
         <BtnFooter className="social-btn-box">
