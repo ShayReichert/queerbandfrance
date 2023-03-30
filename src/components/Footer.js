@@ -61,7 +61,14 @@ const Footer = ({ title }) => {
         <p>
           Fait par{' '}
           <span role="img" aria-hidden="true">
-            <a href="https://shayreichert.com/">{"{ Shay }"}</a>
+            <a
+              href="https://shayreichert.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label="Site de Shay"
+            >
+              {'{ Shay }'}
+            </a>
           </span>{' '}
           avec 💙
         </p>
