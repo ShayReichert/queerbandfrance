@@ -59,11 +59,11 @@ const Footer = ({ title }) => {
           © {new Date().getFullYear()} {title}
         </p>
         <p>
-          Designed & Created with{' '}
+          Fait par{' '}
           <span role="img" aria-hidden="true">
-            💙
+            <a href="https://shayreichert.com/">{"{ Shay }"}</a>
           </span>{' '}
-          by <a href="mailto:shay.reichert@outlook.fr">Shay Reichert</a>
+          avec 💙
         </p>
         <BtnFooter className="social-btn-box">
           <a
